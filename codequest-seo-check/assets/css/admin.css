@@ -1,0 +1,405 @@
+/**
+ * CodeQuest SEO Check - 管理画面スタイル
+ */
+
+/* レイアウト */
+.cqseo-wrap {
+    max-width: 900px;
+}
+
+/* 診断フォーム */
+.cqseo-check-form {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 24px;
+    margin: 20px 0;
+}
+
+.cqseo-input-group label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1d2327;
+}
+
+.cqseo-input-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.cqseo-url-input {
+    flex: 1;
+    font-size: 16px !important;
+    padding: 8px 12px !important;
+    height: auto !important;
+}
+
+.cqseo-check-btn {
+    font-size: 16px !important;
+    padding: 8px 24px !important;
+    height: auto !important;
+    white-space: nowrap;
+}
+
+/* ローディング */
+.cqseo-loading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 0;
+    font-size: 16px;
+    color: #50575e;
+}
+
+.cqseo-loading .spinner {
+    float: none;
+    margin: 0;
+}
+
+/* エラー */
+.cqseo-error {
+    font-size: 16px;
+}
+
+/* 結果セクション */
+.cqseo-results {
+    margin-top: 20px;
+}
+
+/* 総合スコア - 円グラフ */
+.cqseo-score-section {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cqseo-score-circle {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 16px;
+}
+
+.cqseo-score-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.cqseo-score-bg {
+    fill: none;
+    stroke: #e2e4e7;
+    stroke-width: 8;
+}
+
+.cqseo-score-bar {
+    fill: none;
+    stroke: #00a32a;
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 339.292;
+    stroke-dashoffset: 339.292;
+    transition: stroke-dashoffset 1s ease-out, stroke 0.3s ease;
+}
+
+.cqseo-score-bar.score-high {
+    stroke: #00a32a;
+}
+
+.cqseo-score-bar.score-mid {
+    stroke: #dba617;
+}
+
+.cqseo-score-bar.score-low {
+    stroke: #d63638;
+}
+
+.cqseo-score-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.cqseo-score-number {
+    display: block;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    color: #1d2327;
+}
+
+.cqseo-score-label {
+    display: block;
+    font-size: 16px;
+    color: #646970;
+    margin-top: 4px;
+}
+
+.cqseo-free-remaining {
+    font-size: 16px;
+    color: #646970;
+    margin-top: 8px;
+}
+
+/* カテゴリ別スコア */
+.cqseo-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.cqseo-category-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    padding: 20px;
+    text-align: center;
+}
+
+.cqseo-category-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+    margin-bottom: 8px;
+}
+
+.cqseo-category-score {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2271b1;
+}
+
+.cqseo-category-max {
+    font-size: 16px;
+    color: #646970;
+}
+
+.cqseo-category-bar {
+    height: 6px;
+    background: #e2e4e7;
+    border-radius: 3px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.cqseo-category-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.8s ease-out;
+    background: #2271b1;
+}
+
+/* チェック項目一覧 */
+.cqseo-checks {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.cqseo-checks-header {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 20px;
+    border-bottom: 1px solid #c3c4c7;
+    background: #f6f7f7;
+    color: #1d2327;
+}
+
+.cqseo-check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f0f1;
+    font-size: 16px;
+}
+
+.cqseo-check-item:last-child {
+    border-bottom: none;
+}
+
+.cqseo-check-status {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 1;
+    margin-top: 1px;
+}
+
+.cqseo-status-good {
+    background: #edfaef;
+    color: #00a32a;
+}
+
+.cqseo-status-warning {
+    background: #fcf9e8;
+    color: #dba617;
+}
+
+.cqseo-status-error {
+    background: #fcf0f1;
+    color: #d63638;
+}
+
+.cqseo-check-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cqseo-check-name {
+    font-weight: 600;
+    color: #1d2327;
+    margin-bottom: 2px;
+}
+
+.cqseo-check-message {
+    color: #646970;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.cqseo-check-suggestion {
+    color: #2271b1;
+    font-size: 16px;
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+.cqseo-check-score {
+    flex-shrink: 0;
+    font-weight: 600;
+    color: #50575e;
+    white-space: nowrap;
+    font-size: 16px;
+}
+
+/* カテゴリ区切り */
+.cqseo-checks-category-header {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 20px;
+    background: #f6f7f7;
+    border-bottom: 1px solid #c3c4c7;
+    border-top: 1px solid #c3c4c7;
+    color: #50575e;
+}
+
+.cqseo-checks-category-header:first-child {
+    border-top: none;
+}
+
+/* レスポンシブ */
+@media screen and (max-width: 782px) {
+    .cqseo-input-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .cqseo-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cqseo-check-item {
+        flex-wrap: wrap;
+    }
+
+    .cqseo-check-score {
+        width: 100%;
+        text-align: right;
+    }
+}
+
+/* 導線リンクセクション */
+.cqseo-upsell-links {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.cqseo-upsell-links h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 16px;
+}
+
+.cqseo-upsell-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.cqseo-upsell-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cqseo-upsell-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.cqseo-upsell-icon {
+    font-size: 24px;
+    color: #3b82f6;
+    margin-bottom: 8px;
+}
+
+.cqseo-upsell-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.cqseo-upsell-desc {
+    font-size: 16px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.cqseo-upsell-footer {
+    margin-top: 16px;
+    text-align: center;
+}
+
+.cqseo-upsell-footer a {
+    font-size: 16px;
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.cqseo-upsell-footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 782px) {
+    .cqseo-upsell-grid {
+        grid-template-columns: 1fr;
+    }
+}
