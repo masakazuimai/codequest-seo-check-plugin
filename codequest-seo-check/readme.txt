@@ -8,68 +8,68 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-ワンクリックでサイトのSEOスコアを診断。構造化データ・基本SEO・コンテンツ・技術SEOの4カテゴリで評価します。
+One-click SEO diagnosis from WordPress admin. Scores your site out of 100 across 4 categories: Structured Data, Basic SEO, Content, and Technical SEO.
 
 == Description ==
 
-CodeQuest SEO Checkは、WordPress管理画面からワンクリックでサイトのSEO診断ができるプラグインです。
+CodeQuest SEO Check lets you diagnose your site's SEO with one click, right from the WordPress admin dashboard.
 
-= 主な機能 =
+= Features =
 
-* **総合スコア表示** - 100点満点でサイトのSEO状態を可視化
-* **4カテゴリ評価** - 構造化データ、基本SEO、コンテンツ、技術SEOの各カテゴリ別スコア
-* **詳細チェック項目** - タイトルタグ、メタディスクリプション、見出し構造、OGPタグなどの個別診断
-* **改善提案** - 各項目に対する具体的な改善アドバイス
-* **日英対応** - WordPress言語設定に連動して診断結果を日本語/英語で表示
+* **Overall SEO Score** - Visualize your site's SEO health on a 100-point scale
+* **4 Category Evaluation** - Structured Data, Basic SEO, Content, and Technical SEO scores
+* **Detailed Check Items** - Individual diagnosis of title tags, meta descriptions, heading structure, OGP tags, and more
+* **Improvement Suggestions** - Actionable advice for each check item
+* **Bilingual Support** - Japanese/English based on your WordPress language setting
 
-= 外部サービスへの接続 =
+= External Service Connection =
 
-このプラグインは、SEO診断を実行するために外部のCodeQuest APIサービスにデータを送信します。
+This plugin sends data to the CodeQuest API service to perform SEO diagnosis.
 
-* **接続先**: https://codequest-seo-api.misty-night-a30e.workers.dev
-* **送信データ**: 診断対象のURL
-* **タイミング**: ユーザーが「診断する」ボタンをクリックした時のみ
-* **プライバシーポリシー**: https://seo.codequest.work/privacy
-* **利用規約**: https://seo.codequest.work/terms
+* **Endpoint**: https://codequest-seo-api.misty-night-a30e.workers.dev
+* **Data sent**: Only the URL being diagnosed
+* **When**: Only when the user clicks the "Run Check" button
+* **Privacy Policy**: https://seo.codequest.work/privacy
+* **Terms of Service**: https://seo.codequest.work/terms
 
-APIキーを設定していない場合、無料枠（10回まで）でご利用いただけます。アカウント登録すると毎月10回リセットされます。
+Without an API key, you can use the free tier (up to 10 checks). Register for a free account to get 10 checks per month.
 
 == Installation ==
 
-1. プラグインファイルを `/wp-content/plugins/codequest-seo-check/` ディレクトリにアップロード
-2. WordPress管理画面の「プラグイン」からCodeQuest SEO Checkを有効化
-3. 左メニューの「SEO Check」からSEO診断を実行
+1. Upload the plugin files to the `/wp-content/plugins/codequest-seo-check/` directory
+2. Activate the plugin through the 'Plugins' screen in WordPress
+3. Go to "SEO Check" in the left menu to run a diagnosis
 
-= APIキーの設定（任意） =
+= API Key Setup (Optional) =
 
-1. 「SEO Check」→「設定」を開く
-2. APIキー欄にキーを入力して保存
-3. APIキーはhttps://seo.codequest.workで取得できます
+1. Go to "SEO Check" → "Settings"
+2. Enter your API key and save
+3. Get your API key at https://seo.codequest.work
 
 == Frequently Asked Questions ==
 
-= APIキーは必要ですか？ =
+= Do I need an API key? =
 
-いいえ、APIキーがなくても10回まで無料で診断できます。アカウント登録（無料）すると毎月10回リセットされ、有料プランのAPIキーを設定するとプラン枠で診断できます。より多くの診断やPro機能を利用するにはAPIキーが必要です。
+No, you can run up to 10 free checks without an API key. Register for a free account to get 10 checks per month. For more checks, set up an API key from a paid plan.
 
-= どのようなデータが外部に送信されますか？ =
+= What data is sent externally? =
 
-診断対象のURLのみがCodeQuest APIに送信されます。WordPressのログイン情報やサイトのコンテンツが送信されることはありません。
+Only the URL being diagnosed is sent to the CodeQuest API. No WordPress login credentials or site content is transmitted.
 
-= 診断にどのくらい時間がかかりますか？ =
+= How long does a diagnosis take? =
 
-通常10〜30秒程度です。サイトの応答速度により最大60秒かかる場合があります。
+Typically 10-30 seconds. Depending on the target site's response time, it may take up to 60 seconds.
 
 == Screenshots ==
 
-1. SEO診断メインページ - URLを入力して診断を実行
-2. 総合スコアと4カテゴリ別スコア
-3. 詳細チェック項目一覧
+1. SEO diagnosis main page - Enter a URL and run the check
+2. Overall score and 4 category scores
+3. Detailed check items list
 
 == Changelog ==
 
 = 1.0.0 =
-* 初回リリース
-* SEO診断機能（総合スコア、4カテゴリ評価、個別チェック項目）
-* 設定ページ（APIキー管理）
-* 日英多言語対応
+* Initial release
+* SEO diagnosis (overall score, 4 category evaluation, individual check items)
+* Settings page (API key management)
+* Japanese/English bilingual support

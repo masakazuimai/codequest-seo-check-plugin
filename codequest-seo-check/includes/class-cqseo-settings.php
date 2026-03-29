@@ -116,7 +116,7 @@ class CQSEO_Settings {
                     btn.disabled = false;
                     result.innerHTML = '<span style="color:#b91c1c;">&#10007; <?php echo esc_js( __( '通信エラー', 'codequest-seo-check' ) ); ?></span>';
                 };
-                xhr.send('action=cqseo_verify_key&nonce=<?php echo wp_create_nonce( 'cqseo_verify_nonce' ); ?>&api_key=' + encodeURIComponent(key));
+                xhr.send('action=cqseo_verify_key&nonce=<?php echo esc_attr( wp_create_nonce( 'cqseo_verify_nonce' ) ); ?>&api_key=' + encodeURIComponent(key));
             });
         })();
         </script>
