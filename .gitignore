@@ -1,4 +1,7 @@
 *.zip
 .DS_Store
 Thumbs.db
-.claude/
+.idea/
+.vscode/
+.env*
+node_modules/
