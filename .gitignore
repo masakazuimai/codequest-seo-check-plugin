@@ -1,7 +1,0 @@
-*.zip
-.DS_Store
-Thumbs.db
-.idea/
-.vscode/
-.env*
-node_modules/
