@@ -84,6 +84,7 @@ class CQSEO_Admin {
                 'good'           => __( '合格', 'codequest-seo-check' ),
                 'warning'        => __( '警告', 'codequest-seo-check' ),
                 'errorStatus'    => __( 'エラー', 'codequest-seo-check' ),
+                /* translators: %d: 残り回数 */
                 'freeRemaining'  => __( '無料枠残り: %d/10回', 'codequest-seo-check' ),
             ),
         ) );
