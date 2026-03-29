@@ -75,6 +75,48 @@ function cqseo_ajax_run_check() {
 add_action( 'wp_ajax_cqseo_run_check', 'cqseo_ajax_run_check' );
 
 /**
+ * AJAX: APIキー検証
+ */
+function cqseo_ajax_verify_key() {
+    check_ajax_referer( 'cqseo_verify_nonce', 'nonce' );
+
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( array( 'message' => __( '権限がありません。', 'codequest-seo-check' ) ) );
+    }
+
+    $api_key = isset( $_POST['api_key'] ) ? sanitize_text_field( wp_unslash( $_POST['api_key'] ) ) : '';
+
+    if ( empty( $api_key ) ) {
+        wp_send_json_error( array( 'message' => __( 'APIキーを入力してください。', 'codequest-seo-check' ) ) );
+    }
+
+    $response = wp_remote_get(
+        CQSEO_API_BASE . '/user/profile',
+        array(
+            'headers' => array( 'X-API-Key' => $api_key ),
+            'timeout' => 15,
+        )
+    );
+
+    if ( is_wp_error( $response ) ) {
+        wp_send_json_error( array( 'message' => __( 'API接続エラー', 'codequest-seo-check' ) ) );
+    }
+
+    $code = wp_remote_retrieve_response_code( $response );
+
+    if ( 200 === $code ) {
+        $body = json_decode( wp_remote_retrieve_body( $response ), true );
+        $plan = isset( $body['plan'] ) ? sanitize_text_field( $body['plan'] ) : 'unknown';
+        /* translators: %s: プラン名 */
+        $message = sprintf( __( '認証成功（%sプラン）', 'codequest-seo-check' ), ucfirst( $plan ) );
+        wp_send_json_success( array( 'message' => $message ) );
+    } else {
+        wp_send_json_error( array( 'message' => __( 'APIキーが無効です', 'codequest-seo-check' ) ) );
+    }
+}
+add_action( 'wp_ajax_cqseo_verify_key', 'cqseo_ajax_verify_key' );
+
+/**
  * プラグイン有効化時の処理
  */
 function cqseo_activate() {

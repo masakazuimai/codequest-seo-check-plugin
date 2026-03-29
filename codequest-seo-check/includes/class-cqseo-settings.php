@@ -70,6 +70,10 @@ class CQSEO_Settings {
             autocomplete="off"
             placeholder="<?php echo esc_attr__( 'APIキーを入力（任意）', 'codequest-seo-check' ); ?>"
         />
+        <button type="button" id="cqseo-verify-key" class="button" style="margin-left: 8px;">
+            <?php echo esc_html__( '検証', 'codequest-seo-check' ); ?>
+        </button>
+        <span id="cqseo-verify-result" style="margin-left: 8px;"></span>
         <p class="description">
             <?php
             printf(
@@ -79,6 +83,43 @@ class CQSEO_Settings {
             );
             ?>
         </p>
+        <script>
+        (function() {
+            var btn = document.getElementById('cqseo-verify-key');
+            if (!btn) return;
+            btn.addEventListener('click', function() {
+                var key = document.getElementById('cqseo_api_key').value.trim();
+                var result = document.getElementById('cqseo-verify-result');
+                if (!key) {
+                    result.innerHTML = '<span style="color:#b91c1c;">&#10007; <?php echo esc_js( __( 'APIキーを入力してください', 'codequest-seo-check' ) ); ?></span>';
+                    return;
+                }
+                btn.disabled = true;
+                result.innerHTML = '<?php echo esc_js( __( '検証中...', 'codequest-seo-check' ) ); ?>';
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>');
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function() {
+                    btn.disabled = false;
+                    try {
+                        var res = JSON.parse(xhr.responseText);
+                        if (res.success) {
+                            result.innerHTML = '<span style="color:#15803d;">&#10003; ' + res.data.message + '</span>';
+                        } else {
+                            result.innerHTML = '<span style="color:#b91c1c;">&#10007; ' + (res.data && res.data.message ? res.data.message : '<?php echo esc_js( __( '検証に失敗しました', 'codequest-seo-check' ) ); ?>') + '</span>';
+                        }
+                    } catch(e) {
+                        result.innerHTML = '<span style="color:#b91c1c;">&#10007; <?php echo esc_js( __( '検証に失敗しました', 'codequest-seo-check' ) ); ?></span>';
+                    }
+                };
+                xhr.onerror = function() {
+                    btn.disabled = false;
+                    result.innerHTML = '<span style="color:#b91c1c;">&#10007; <?php echo esc_js( __( '通信エラー', 'codequest-seo-check' ) ); ?></span>';
+                };
+                xhr.send('action=cqseo_verify_key&nonce=<?php echo wp_create_nonce( 'cqseo_verify_nonce' ); ?>&api_key=' + encodeURIComponent(key));
+            });
+        })();
+        </script>
         <?php
     }
 
