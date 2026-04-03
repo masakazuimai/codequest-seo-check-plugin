@@ -28,14 +28,6 @@ require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-api.php';
 require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-settings.php';
 
 /**
- * 管理画面の翻訳読み込み
- */
-function cqseo_load_textdomain() {
-    load_plugin_textdomain( 'codequest-seo-check', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-}
-add_action( 'plugins_loaded', 'cqseo_load_textdomain' );
-
-/**
  * 管理画面の初期化
  */
 function cqseo_admin_init() {
