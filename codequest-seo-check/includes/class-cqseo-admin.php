@@ -24,8 +24,8 @@ class CQSEO_Admin {
      */
     public function add_menu() {
         add_menu_page(
-            __( 'SEO Check', 'codequest-seo-check' ),
-            __( 'SEO Check', 'codequest-seo-check' ),
+            __( 'CQ SEO CHECK', 'codequest-seo-check' ),
+            __( 'CQ SEO CHECK', 'codequest-seo-check' ),
             'manage_options',
             'cqseo-check',
             array( $this, 'render_main_page' ),
@@ -95,9 +95,15 @@ class CQSEO_Admin {
      * メインページをレンダリング
      */
     public function render_main_page() {
+        $plan_label = $this->get_plan_label();
         ?>
         <div class="wrap cqseo-wrap">
-            <h1><?php echo esc_html__( 'CodeQuest SEO Check', 'codequest-seo-check' ); ?></h1>
+            <h1>
+                <?php echo esc_html__( 'CodeQuest SEO CHECK', 'codequest-seo-check' ); ?>
+                <?php if ( $plan_label ) : ?>
+                    <span class="cqseo-plan-badge"><?php echo esc_html( $plan_label ); ?></span>
+                <?php endif; ?>
+            </h1>
 
             <div class="cqseo-check-form">
                 <div class="cqseo-input-group">
@@ -192,5 +198,45 @@ class CQSEO_Admin {
             </div>
         </div>
         <?php
+    }
+
+    /**
+     * 現在のプラン名を取得（キャッシュ付き）
+     *
+     * @return string プラン名（未設定の場合は空文字）
+     */
+    private function get_plan_label() {
+        $api_key = get_option( 'cqseo_api_key', '' );
+        if ( empty( $api_key ) ) {
+            return __( 'Free', 'codequest-seo-check' );
+        }
+
+        $cached = get_transient( 'cqseo_plan_name' );
+        if ( false !== $cached ) {
+            return $cached;
+        }
+
+        $response = wp_remote_get(
+            CQSEO_API_BASE . '/user/profile',
+            array(
+                'headers' => array( 'X-API-Key' => $api_key ),
+                'timeout' => 5,
+            )
+        );
+
+        if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+            return '';
+        }
+
+        $body = json_decode( wp_remote_retrieve_body( $response ), true );
+        $plan = isset( $body['plan'] ) ? sanitize_text_field( $body['plan'] ) : '';
+
+        if ( ! empty( $plan ) ) {
+            $label = ucfirst( $plan ) . __( 'プラン', 'codequest-seo-check' );
+            set_transient( 'cqseo_plan_name', $label, HOUR_IN_SECONDS );
+            return $label;
+        }
+
+        return '';
     }
 }
