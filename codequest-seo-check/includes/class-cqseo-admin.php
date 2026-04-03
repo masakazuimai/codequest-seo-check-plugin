@@ -86,6 +86,7 @@ class CQSEO_Admin {
                 'errorStatus'    => __( 'エラー', 'codequest-seo-check' ),
                 /* translators: %d: 残り回数 */
                 'freeRemaining'  => __( '無料枠残り: %d/10回', 'codequest-seo-check' ),
+                'timeout'        => __( 'タイムアウト: サーバーからの応答がありませんでした。', 'codequest-seo-check' ),
             ),
         ) );
     }

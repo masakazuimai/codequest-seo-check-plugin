@@ -16,6 +16,37 @@ class CQSEO_Settings {
      */
     public function register() {
         add_action( 'admin_init', array( $this, 'register_settings' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_settings_assets' ) );
+    }
+
+    /**
+     * 設定ページ用アセットを読み込み
+     *
+     * @param string $hook 現在の管理画面フック
+     */
+    public function enqueue_settings_assets( $hook ) {
+        if ( false === strpos( $hook, 'cqseo-settings' ) ) {
+            return;
+        }
+
+        wp_enqueue_script(
+            'cqseo-settings',
+            CQSEO_PLUGIN_URL . 'assets/js/settings.js',
+            array(),
+            CQSEO_VERSION,
+            true
+        );
+
+        wp_localize_script( 'cqseo-settings', 'cqseoSettingsData', array(
+            'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+            'nonce'   => wp_create_nonce( 'cqseo_verify_nonce' ),
+            'i18n'    => array(
+                'enterKey'     => __( 'APIキーを入力してください', 'codequest-seo-check' ),
+                'verifying'    => __( '検証中...', 'codequest-seo-check' ),
+                'verifyFailed' => __( '検証に失敗しました', 'codequest-seo-check' ),
+                'networkError' => __( '通信エラー', 'codequest-seo-check' ),
+            ),
+        ) );
     }
 
     /**
@@ -76,50 +107,23 @@ class CQSEO_Settings {
         <span id="cqseo-verify-result" style="margin-left: 8px;"></span>
         <p class="description">
             <?php
-            printf(
-                /* translators: %s: CodeQuest URL */
-                esc_html__( 'APIキーは %s で取得できます。', 'codequest-seo-check' ),
-                '<a href="https://seo.codequest.work" target="_blank" rel="noopener noreferrer">seo.codequest.work</a>'
+            $allowed_html = array(
+                'a' => array(
+                    'href'   => array(),
+                    'target' => array(),
+                    'rel'    => array(),
+                ),
+            );
+            echo wp_kses(
+                sprintf(
+                    /* translators: %s: CodeQuest URL */
+                    __( 'APIキーは %s で取得できます。', 'codequest-seo-check' ),
+                    '<a href="https://seo.codequest.work" target="_blank" rel="noopener noreferrer">seo.codequest.work</a>'
+                ),
+                $allowed_html
             );
             ?>
         </p>
-        <script>
-        (function() {
-            var btn = document.getElementById('cqseo-verify-key');
-            if (!btn) return;
-            btn.addEventListener('click', function() {
-                var key = document.getElementById('cqseo_api_key').value.trim();
-                var result = document.getElementById('cqseo-verify-result');
-                if (!key) {
-                    result.innerHTML = '<span style="color:#b91c1c;">&#10007; <?php echo esc_js( __( 'APIキーを入力してください', 'codequest-seo-check' ) ); ?></span>';
-                    return;
-                }
-                btn.disabled = true;
-                result.innerHTML = '<?php echo esc_js( __( '検証中...', 'codequest-seo-check' ) ); ?>';
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', '<?php echo esc_url( admin_url( 'admin-ajax.php' ) ); ?>');
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onload = function() {
-                    btn.disabled = false;
-                    try {
-                        var res = JSON.parse(xhr.responseText);
-                        if (res.success) {
-                            result.innerHTML = '<span style="color:#15803d;">&#10003; ' + res.data.message + '</span>';
-                        } else {
-                            result.innerHTML = '<span style="color:#b91c1c;">&#10007; ' + (res.data && res.data.message ? res.data.message : '<?php echo esc_js( __( '検証に失敗しました', 'codequest-seo-check' ) ); ?>') + '</span>';
-                        }
-                    } catch(e) {
-                        result.innerHTML = '<span style="color:#b91c1c;">&#10007; <?php echo esc_js( __( '検証に失敗しました', 'codequest-seo-check' ) ); ?></span>';
-                    }
-                };
-                xhr.onerror = function() {
-                    btn.disabled = false;
-                    result.innerHTML = '<span style="color:#b91c1c;">&#10007; <?php echo esc_js( __( '通信エラー', 'codequest-seo-check' ) ); ?></span>';
-                };
-                xhr.send('action=cqseo_verify_key&nonce=<?php echo esc_attr( wp_create_nonce( 'cqseo_verify_nonce' ) ); ?>&api_key=' + encodeURIComponent(key));
-            });
-        })();
-        </script>
         <?php
     }
 

@@ -14,116 +14,230 @@ msgstr ""
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: codequest-seo-check.php
+#: codequest-seo-check.php:57
+#: codequest-seo-check.php:84
 msgid "権限がありません。"
 msgstr ""
 
-#: codequest-seo-check.php
+#: codequest-seo-check.php:63
 msgid "有効なURLを入力してください。"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: codequest-seo-check.php:90
+msgid "APIキーを入力してください。"
+msgstr ""
+
+#: codequest-seo-check.php:102
+msgid "API接続エラー"
+msgstr ""
+
+#: codequest-seo-check.php:111
+#, php-format
+#. translators: %s: プラン名
+msgid "認証成功（%sプラン）"
+msgstr ""
+
+#: codequest-seo-check.php:114
+msgid "APIキーが無効です"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:27
+#: includes/class-cqseo-admin.php:28
 msgid "SEO Check"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:38
+#: includes/class-cqseo-admin.php:39
 msgid "設定"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
-msgid "診断するURL"
-msgstr ""
-
-#: includes/class-cqseo-admin.php
-msgid "診断する"
-msgstr ""
-
-#: includes/class-cqseo-admin.php
-msgid "診断中...サイトの分析には最大60秒かかる場合があります。"
-msgstr ""
-
-#: includes/class-cqseo-admin.php
-msgid "/ 100"
-msgstr ""
-
-#: includes/class-cqseo-admin.php
-msgid "CodeQuest SEO Check"
-msgstr ""
-
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:76
 msgid "診断中..."
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:77
 msgid "エラー"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:78
+msgid "診断する"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:79
 msgid "スコア"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:80
 msgid "構造化データ"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:81
 msgid "基本SEO"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:82
 msgid "コンテンツ"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:83
 msgid "技術SEO"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:84
 msgid "合格"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:85
 msgid "警告"
 msgstr ""
 
-#: includes/class-cqseo-admin.php
+#: includes/class-cqseo-admin.php:86
+msgid "エラー"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:88
+#, php-format
+#. translators: %d: 残り回数
 msgid "無料枠残り: %d/10回"
 msgstr ""
 
-#: includes/class-cqseo-api.php
+#: includes/class-cqseo-admin.php:89
+msgid "タイムアウト: サーバーからの応答がありませんでした。"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:100
+msgid "CodeQuest SEO Check"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:104
+msgid "診断するURL"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:114
+msgid "診断する"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:122
+msgid "診断中...サイトの分析には最大60秒かかる場合があります。"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:139
+msgid "/ 100"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:153
+msgid "さらに詳しく分析する"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:157
+msgid "改善コード自動生成"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:158
+msgid "コピペで実装できる改善コードを生成"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:162
+msgid "キーワード調査"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:163
+msgid "サジェスト・検索ボリューム・見出し分析"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:167
+msgid "競合SEO比較"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:168
+msgid "最大6サイトのSEOスコアを並べて比較"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:172
+msgid "構造化データ診断"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:173
+msgid "JSON-LD・リッチリザルト対応状況を詳細チェック"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:177
+msgid "Core Web Vitals測定"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:178
+msgid "LCP・CLS・INPをモバイル/デスクトップで計測"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:182
+msgid "サイト全体診断"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:183
+msgid "全ページのSEOスコアを一括チェック"
+msgstr ""
+
+#: includes/class-cqseo-admin.php:188
+msgid "料金プランを見る →"
+msgstr ""
+
+#: includes/class-cqseo-api.php:46
 #, php-format
+#. translators: %s: エラーメッセージ
 msgid "API接続エラー: %s"
 msgstr ""
 
-#: includes/class-cqseo-api.php
+#: includes/class-cqseo-api.php:55
 msgid "不明なエラーが発生しました。"
 msgstr ""
 
-#: includes/class-cqseo-api.php
+#: includes/class-cqseo-api.php:60
 msgid "APIレスポンスの解析に失敗しました。"
 msgstr ""
 
-#: includes/class-cqseo-settings.php
+#: includes/class-cqseo-settings.php:37
 msgid "API設定"
 msgstr ""
 
-#: includes/class-cqseo-settings.php
+#: includes/class-cqseo-settings.php:44
 msgid "APIキー"
 msgstr ""
 
-#: includes/class-cqseo-settings.php
-msgid "APIキーを設定すると、無料枠を超えた診断が可能になります。未入力の場合は無料枠（10回/日）で動作します。"
+#: includes/class-cqseo-settings.php:55
+msgid "APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（10回まで）で動作します。"
 msgstr ""
 
-#: includes/class-cqseo-settings.php
+#: includes/class-cqseo-settings.php:71
 msgid "APIキーを入力（任意）"
 msgstr ""
 
-#: includes/class-cqseo-settings.php
+#: includes/class-cqseo-settings.php:74
+msgid "検証"
+msgstr ""
+
+#: includes/class-cqseo-settings.php:89
 #, php-format
+#. translators: %s: CodeQuest URL
 msgid "APIキーは %s で取得できます。"
 msgstr ""
 
-#: includes/class-cqseo-settings.php
+#: includes/class-cqseo-settings.php:111
+msgid "APIキーを入力してください"
+msgstr ""
+
+#: includes/class-cqseo-settings.php:115
+msgid "検証中..."
+msgstr ""
+
+#: includes/class-cqseo-settings.php:126
+#: includes/class-cqseo-settings.php:129
+msgid "検証に失敗しました"
+msgstr ""
+
+#: includes/class-cqseo-settings.php:134
+msgid "通信エラー"
+msgstr ""
+
+#: includes/class-cqseo-settings.php:152
 msgid "CodeQuest SEO Check 設定"
 msgstr ""

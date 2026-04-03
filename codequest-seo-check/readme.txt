@@ -28,7 +28,8 @@ This plugin sends data to the CodeQuest API service to perform SEO diagnosis.
 
 * **Endpoint**: https://codequest-seo-api.misty-night-a30e.workers.dev
 * **Data sent**: Only the URL being diagnosed
-* **When**: Only when the user clicks the "Run Check" button
+* **When**: Only when the user clicks the "Run Check" button or the "Verify" button on the Settings page
+* **Additional endpoint**: When verifying an API key, the key is sent to the same service (/user/profile) to validate the key and retrieve plan information
 * **Privacy Policy**: https://seo.codequest.work/privacy
 * **Terms of Service**: https://seo.codequest.work/terms
 

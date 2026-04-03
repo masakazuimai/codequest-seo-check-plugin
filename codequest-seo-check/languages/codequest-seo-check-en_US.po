@@ -21,32 +21,33 @@ msgstr "You do not have permission."
 msgid "有効なURLを入力してください。"
 msgstr "Please enter a valid URL."
 
+msgid "APIキーを入力してください。"
+msgstr "Please enter an API key."
+
+msgid "API接続エラー"
+msgstr "API connection error"
+
+#, php-format
+msgid "認証成功（%sプラン）"
+msgstr "Authentication successful (%s plan)"
+
+msgid "APIキーが無効です"
+msgstr "Invalid API key"
+
 msgid "SEO Check"
 msgstr "SEO Check"
 
 msgid "設定"
 msgstr "Settings"
 
-msgid "診断するURL"
-msgstr "URL to check"
-
-msgid "診断する"
-msgstr "Run Check"
-
-msgid "診断中...サイトの分析には最大60秒かかる場合があります。"
-msgstr "Checking... Site analysis may take up to 60 seconds."
-
-msgid "/ 100"
-msgstr "/ 100"
-
-msgid "CodeQuest SEO Check"
-msgstr "CodeQuest SEO Check"
-
 msgid "診断中..."
 msgstr "Checking..."
 
 msgid "エラー"
 msgstr "Error"
+
+msgid "診断する"
+msgstr "Run Check"
 
 msgid "スコア"
 msgstr "Score"
@@ -69,9 +70,68 @@ msgstr "Pass"
 msgid "警告"
 msgstr "Warning"
 
+#, php-format
 msgid "無料枠残り: %d/10回"
 msgstr "Free quota remaining: %d/10"
 
+msgid "タイムアウト: サーバーからの応答がありませんでした。"
+msgstr "Timeout: No response from the server."
+
+msgid "CodeQuest SEO Check"
+msgstr "CodeQuest SEO Check"
+
+msgid "診断するURL"
+msgstr "URL to check"
+
+msgid "診断中...サイトの分析には最大60秒かかる場合があります。"
+msgstr "Checking... Site analysis may take up to 60 seconds."
+
+msgid "/ 100"
+msgstr "/ 100"
+
+msgid "さらに詳しく分析する"
+msgstr "Analyze in more detail"
+
+msgid "改善コード自動生成"
+msgstr "Auto-generate improvement code"
+
+msgid "コピペで実装できる改善コードを生成"
+msgstr "Generate copy-paste ready improvement code"
+
+msgid "キーワード調査"
+msgstr "Keyword Research"
+
+msgid "サジェスト・検索ボリューム・見出し分析"
+msgstr "Suggestions, search volume & heading analysis"
+
+msgid "競合SEO比較"
+msgstr "Competitor SEO Comparison"
+
+msgid "最大6サイトのSEOスコアを並べて比較"
+msgstr "Compare SEO scores of up to 6 sites side by side"
+
+msgid "構造化データ診断"
+msgstr "Structured Data Diagnosis"
+
+msgid "JSON-LD・リッチリザルト対応状況を詳細チェック"
+msgstr "Detailed check of JSON-LD and rich results compatibility"
+
+msgid "Core Web Vitals測定"
+msgstr "Core Web Vitals Measurement"
+
+msgid "LCP・CLS・INPをモバイル/デスクトップで計測"
+msgstr "Measure LCP, CLS & INP on mobile/desktop"
+
+msgid "サイト全体診断"
+msgstr "Full Site Diagnosis"
+
+msgid "全ページのSEOスコアを一括チェック"
+msgstr "Bulk check SEO scores for all pages"
+
+msgid "料金プランを見る →"
+msgstr "View pricing plans →"
+
+#, php-format
 msgid "API接続エラー: %s"
 msgstr "API connection error: %s"
 
@@ -87,14 +147,30 @@ msgstr "API Settings"
 msgid "APIキー"
 msgstr "API Key"
 
-msgid "APIキーを設定すると、無料枠を超えた診断が可能になります。未入力の場合は無料枠（10回/日）で動作します。"
-msgstr "Set an API key to unlock unlimited checks. Without a key, you can use the free quota (10 checks/day)."
+msgid "APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（10回まで）で動作します。"
+msgstr "Set an API key to use your plan's check quota. Without a key, you can use the free tier (up to 10 checks)."
 
 msgid "APIキーを入力（任意）"
 msgstr "Enter API key (optional)"
 
+msgid "検証"
+msgstr "Verify"
+
+#, php-format
 msgid "APIキーは %s で取得できます。"
 msgstr "You can get an API key at %s."
+
+msgid "APIキーを入力してください"
+msgstr "Please enter an API key"
+
+msgid "検証中..."
+msgstr "Verifying..."
+
+msgid "検証に失敗しました"
+msgstr "Verification failed"
+
+msgid "通信エラー"
+msgstr "Connection error"
 
 msgid "CodeQuest SEO Check 設定"
 msgstr "CodeQuest SEO Check Settings"

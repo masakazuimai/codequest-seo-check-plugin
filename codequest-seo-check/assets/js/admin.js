@@ -216,7 +216,7 @@
       error: function (xhr, status) {
         var msg =
           status === 'timeout'
-            ? 'タイムアウト: サーバーからの応答がありませんでした。'
+            ? cqseoData.i18n.timeout
             : cqseoData.i18n.error;
         showError(msg);
       },
