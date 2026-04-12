@@ -1,5 +1,5 @@
 /**
- * CQ SEO CHECK - 管理画面JavaScript
+ * ORECTIC SEO CHECK - 管理画面JavaScript
  */
 (function ($) {
   'use strict';

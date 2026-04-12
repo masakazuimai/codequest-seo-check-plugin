@@ -1,9 +1,9 @@
-# English translation for CQ SEO CHECK
+# English translation for ORECTIC SEO CHECK
 # Copyright (C) 2024 ORECTIC
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: CQ SEO CHECK 1.0.0\n"
+"Project-Id-Version: ORECTIC SEO CHECK 1.0.0\n"
 "Report-Msgid-Bugs-To: https://orecticdesign.com/contact/\n"
 "POT-Creation-Date: 2024-01-01 00:00:00+00:00\n"
 "PO-Revision-Date: 2024-01-01 00:00:00+00:00\n"
@@ -77,8 +77,8 @@ msgstr "Free quota remaining: %d/10"
 msgid "タイムアウト: サーバーからの応答がありませんでした。"
 msgstr "Timeout: No response from the server."
 
-msgid "CQ SEO CHECK"
-msgstr "CQ SEO CHECK"
+msgid "ORECTIC SEO CHECK"
+msgstr "ORECTIC SEO CHECK"
 
 msgid "診断するURL"
 msgstr "URL to check"
@@ -172,5 +172,5 @@ msgstr "Verification failed"
 msgid "通信エラー"
 msgstr "Connection error"
 
-msgid "CQ SEO CHECK 設定"
-msgstr "CQ SEO CHECK Settings"
+msgid "ORECTIC SEO CHECK 設定"
+msgstr "ORECTIC SEO CHECK Settings"

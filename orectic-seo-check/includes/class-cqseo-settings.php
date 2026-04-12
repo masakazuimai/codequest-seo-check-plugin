@@ -2,7 +2,7 @@
 /**
  * 設定ページクラス
  *
- * @package CQ_SEO_Check
+ * @package Orectic_SEO_Check
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -41,10 +41,10 @@ class CQSEO_Settings {
             'ajaxUrl' => admin_url( 'admin-ajax.php' ),
             'nonce'   => wp_create_nonce( 'cqseo_verify_nonce' ),
             'i18n'    => array(
-                'enterKey'     => __( 'APIキーを入力してください', 'cq-seo-check' ),
-                'verifying'    => __( '検証中...', 'cq-seo-check' ),
-                'verifyFailed' => __( '検証に失敗しました', 'cq-seo-check' ),
-                'networkError' => __( '通信エラー', 'cq-seo-check' ),
+                'enterKey'     => __( 'APIキーを入力してください', 'orectic-seo-check' ),
+                'verifying'    => __( '検証中...', 'orectic-seo-check' ),
+                'verifyFailed' => __( '検証に失敗しました', 'orectic-seo-check' ),
+                'networkError' => __( '通信エラー', 'orectic-seo-check' ),
             ),
         ) );
     }
@@ -65,14 +65,14 @@ class CQSEO_Settings {
 
         add_settings_section(
             'cqseo_api_section',
-            __( 'API設定', 'cq-seo-check' ),
+            __( 'API設定', 'orectic-seo-check' ),
             array( $this, 'render_section_description' ),
             'cqseo-settings'
         );
 
         add_settings_field(
             'cqseo_api_key',
-            __( 'APIキー', 'cq-seo-check' ),
+            __( 'APIキー', 'orectic-seo-check' ),
             array( $this, 'render_api_key_field' ),
             'cqseo-settings',
             'cqseo_api_section'
@@ -83,7 +83,7 @@ class CQSEO_Settings {
      * セクション説明を表示
      */
     public function render_section_description() {
-        echo '<p>' . esc_html__( 'APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（10回まで）で動作します。', 'cq-seo-check' ) . '</p>';
+        echo '<p>' . esc_html__( 'APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（10回まで）で動作します。', 'orectic-seo-check' ) . '</p>';
     }
 
     /**
@@ -99,10 +99,10 @@ class CQSEO_Settings {
             value="<?php echo esc_attr( $api_key ); ?>"
             class="regular-text"
             autocomplete="off"
-            placeholder="<?php echo esc_attr__( 'APIキーを入力（任意）', 'cq-seo-check' ); ?>"
+            placeholder="<?php echo esc_attr__( 'APIキーを入力（任意）', 'orectic-seo-check' ); ?>"
         />
         <button type="button" id="cqseo-verify-key" class="button" style="margin-left: 8px;">
-            <?php echo esc_html__( '検証', 'cq-seo-check' ); ?>
+            <?php echo esc_html__( '検証', 'orectic-seo-check' ); ?>
         </button>
         <span id="cqseo-verify-result" style="margin-left: 8px;"></span>
         <p class="description">
@@ -117,7 +117,7 @@ class CQSEO_Settings {
             echo wp_kses(
                 sprintf(
                     /* translators: %s: CodeQuest URL */
-                    __( 'APIキーは %s で取得できます。', 'cq-seo-check' ),
+                    __( 'APIキーは %s で取得できます。', 'orectic-seo-check' ),
                     '<a href="https://seo.codequest.work" target="_blank" rel="noopener noreferrer">seo.codequest.work</a>'
                 ),
                 $allowed_html
@@ -136,7 +136,7 @@ class CQSEO_Settings {
         }
         ?>
         <div class="wrap">
-            <h1><?php echo esc_html__( 'CQ SEO CHECK 設定', 'cq-seo-check' ); ?></h1>
+            <h1><?php echo esc_html__( 'ORECTIC SEO CHECK 設定', 'orectic-seo-check' ); ?></h1>
             <form method="post" action="options.php">
                 <?php
                 settings_fields( 'cqseo_settings_group' );

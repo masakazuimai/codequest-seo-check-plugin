@@ -2,7 +2,7 @@
 /**
  * API通信クラス
  *
- * @package CQ_SEO_Check
+ * @package Orectic_SEO_Check
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,7 +43,7 @@ class CQSEO_API {
             return new WP_Error(
                 'cqseo_api_error',
                 /* translators: %s: エラーメッセージ */
-                sprintf( __( 'API接続エラー: %s', 'cq-seo-check' ), $response->get_error_message() )
+                sprintf( __( 'API接続エラー: %s', 'orectic-seo-check' ), $response->get_error_message() )
             );
         }
 
@@ -52,12 +52,12 @@ class CQSEO_API {
         $data = json_decode( $body, true );
 
         if ( 200 !== $code ) {
-            $message = isset( $data['message'] ) ? sanitize_text_field( $data['message'] ) : __( '不明なエラーが発生しました。', 'cq-seo-check' );
+            $message = isset( $data['message'] ) ? sanitize_text_field( $data['message'] ) : __( '不明なエラーが発生しました。', 'orectic-seo-check' );
             return new WP_Error( 'cqseo_api_error', $message );
         }
 
         if ( null === $data ) {
-            return new WP_Error( 'cqseo_api_error', __( 'APIレスポンスの解析に失敗しました。', 'cq-seo-check' ) );
+            return new WP_Error( 'cqseo_api_error', __( 'APIレスポンスの解析に失敗しました。', 'orectic-seo-check' ) );
         }
 
         return $this->sanitize_response( $data );

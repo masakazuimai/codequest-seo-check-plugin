@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: CQ SEO CHECK
+ * Plugin Name: ORECTIC SEO CHECK
  * Plugin URI: https://seo.codequest.work
  * Description: ワンクリックでサイトのSEOスコアを診断。構造化データ・基本SEO・コンテンツ・技術SEOの4カテゴリで100点満点のスコアを表示します。
  * Version: 1.0.1
@@ -10,7 +10,7 @@
  * Author URI: https://orecticdesign.com
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: cq-seo-check
+ * Text Domain: orectic-seo-check
  * Domain Path: /languages
  */
 
@@ -46,13 +46,13 @@ function cqseo_ajax_run_check() {
     check_ajax_referer( 'cqseo_check_nonce', 'nonce' );
 
     if ( ! current_user_can( 'manage_options' ) ) {
-        wp_send_json_error( array( 'message' => __( '権限がありません。', 'cq-seo-check' ) ) );
+        wp_send_json_error( array( 'message' => __( '権限がありません。', 'orectic-seo-check' ) ) );
     }
 
     $url = isset( $_POST['url'] ) ? esc_url_raw( wp_unslash( $_POST['url'] ) ) : '';
 
     if ( empty( $url ) || ! filter_var( $url, FILTER_VALIDATE_URL ) ) {
-        wp_send_json_error( array( 'message' => __( '有効なURLを入力してください。', 'cq-seo-check' ) ) );
+        wp_send_json_error( array( 'message' => __( '有効なURLを入力してください。', 'orectic-seo-check' ) ) );
     }
 
     $api    = new CQSEO_API();
@@ -73,13 +73,13 @@ function cqseo_ajax_verify_key() {
     check_ajax_referer( 'cqseo_verify_nonce', 'nonce' );
 
     if ( ! current_user_can( 'manage_options' ) ) {
-        wp_send_json_error( array( 'message' => __( '権限がありません。', 'cq-seo-check' ) ) );
+        wp_send_json_error( array( 'message' => __( '権限がありません。', 'orectic-seo-check' ) ) );
     }
 
     $api_key = isset( $_POST['api_key'] ) ? sanitize_text_field( wp_unslash( $_POST['api_key'] ) ) : '';
 
     if ( empty( $api_key ) ) {
-        wp_send_json_error( array( 'message' => __( 'APIキーを入力してください。', 'cq-seo-check' ) ) );
+        wp_send_json_error( array( 'message' => __( 'APIキーを入力してください。', 'orectic-seo-check' ) ) );
     }
 
     $response = wp_remote_get(
@@ -91,7 +91,7 @@ function cqseo_ajax_verify_key() {
     );
 
     if ( is_wp_error( $response ) ) {
-        wp_send_json_error( array( 'message' => __( 'API接続エラー', 'cq-seo-check' ) ) );
+        wp_send_json_error( array( 'message' => __( 'API接続エラー', 'orectic-seo-check' ) ) );
     }
 
     $code = wp_remote_retrieve_response_code( $response );
@@ -100,10 +100,10 @@ function cqseo_ajax_verify_key() {
         $body = json_decode( wp_remote_retrieve_body( $response ), true );
         $plan = isset( $body['plan'] ) ? sanitize_text_field( $body['plan'] ) : 'unknown';
         /* translators: %s: プラン名 */
-        $message = sprintf( __( '認証成功（%sプラン）', 'cq-seo-check' ), ucfirst( $plan ) );
+        $message = sprintf( __( '認証成功（%sプラン）', 'orectic-seo-check' ), ucfirst( $plan ) );
         wp_send_json_success( array( 'message' => $message ) );
     } else {
-        wp_send_json_error( array( 'message' => __( 'APIキーが無効です', 'cq-seo-check' ) ) );
+        wp_send_json_error( array( 'message' => __( 'APIキーが無効です', 'orectic-seo-check' ) ) );
     }
 }
 add_action( 'wp_ajax_cqseo_verify_key', 'cqseo_ajax_verify_key' );

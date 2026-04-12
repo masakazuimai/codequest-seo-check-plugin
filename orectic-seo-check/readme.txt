@@ -1,4 +1,4 @@
-=== CQ SEO CHECK ===
+=== ORECTIC SEO CHECK ===
 Contributors: masakazuimai
 Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
@@ -12,7 +12,7 @@ One-click SEO diagnosis from WordPress admin. Scores your site out of 100 across
 
 == Description ==
 
-CQ SEO CHECK lets you diagnose your site's SEO with one click, right from the WordPress admin dashboard.
+ORECTIC SEO CHECK lets you diagnose your site's SEO with one click, right from the WordPress admin dashboard.
 
 = Features =
 
@@ -49,25 +49,25 @@ APIキーなしでも10回まで無料で診断できます。アカウント登
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/cq-seo-check/` directory
+1. Upload the plugin files to the `/wp-content/plugins/orectic-seo-check/` directory
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Go to "CQ SEO CHECK" in the left menu to run a diagnosis
+3. Go to "ORECTIC SEO CHECK" in the left menu to run a diagnosis
 
 = API Key Setup (Optional) =
 
-1. Go to "CQ SEO CHECK" → "Settings"
+1. Go to "ORECTIC SEO CHECK" → "Settings"
 2. Enter your API key and save
 3. Get your API key at https://seo.codequest.work
 
 = インストール手順（日本語） =
 
-1. プラグインファイルを `/wp-content/plugins/cq-seo-check/` にアップロード
-2. WordPress管理画面の「プラグイン」からCQ SEO CHECKを有効化
-3. 左メニューの「CQ SEO CHECK」からSEO診断を実行
+1. プラグインファイルを `/wp-content/plugins/orectic-seo-check/` にアップロード
+2. WordPress管理画面の「プラグイン」からORECTIC SEO CHECKを有効化
+3. 左メニューの「ORECTIC SEO CHECK」からSEO診断を実行
 
 = APIキーの設定（任意） =
 
-1. 「CQ SEO CHECK」→「設定」を開く
+1. 「ORECTIC SEO CHECK」→「設定」を開く
 2. APIキー欄にキーを入力して保存
 3. APIキーは https://seo.codequest.work で取得できます
 
@@ -106,8 +106,8 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 == Changelog ==
 
 = 1.0.1 =
-* Plugin renamed from "CodeQuest SEO Check" to "CQ SEO CHECK"
-* Plugin slug changed from "codequest-seo-check" to "cq-seo-check"
+* Plugin renamed to "ORECTIC SEO CHECK"
+* Plugin slug changed to "orectic-seo-check"
 
 = 1.0.0 =
 * Initial release
