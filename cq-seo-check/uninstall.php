@@ -2,7 +2,7 @@
 /**
  * プラグイン削除時のクリーンアップ
  *
- * @package CodeQuest_SEO_Check
+ * @package CQ_SEO_Check
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

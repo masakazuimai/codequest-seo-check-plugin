@@ -1,5 +1,5 @@
 /**
- * CodeQuest SEO Check - 管理画面JavaScript
+ * CQ SEO CHECK - 管理画面JavaScript
  */
 (function ($) {
   'use strict';
