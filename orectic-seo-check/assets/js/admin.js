@@ -238,7 +238,7 @@
     // 無料枠の残り回数表示
     var $remaining = $('#cqseo-free-remaining');
     if (typeof data.anonymousUsed !== 'undefined') {
-      var remaining = 10 - data.anonymousUsed;
+      var remaining = 3 - data.anonymousUsed;
       $remaining
         .text(
           cqseoData.i18n.freeRemaining.replace(

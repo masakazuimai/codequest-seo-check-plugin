@@ -98,7 +98,7 @@ msgstr ""
 #: includes/class-cqseo-admin.php:88
 #, php-format
 #. translators: %d: 残り回数
-msgid "無料枠残り: %d/10回"
+msgid "無料枠残り: %d/3回"
 msgstr ""
 
 #: includes/class-cqseo-admin.php:89
@@ -204,7 +204,7 @@ msgid "APIキー"
 msgstr ""
 
 #: includes/class-cqseo-settings.php:55
-msgid "APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（10回まで）で動作します。"
+msgid "APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（3回まで）で動作します。"
 msgstr ""
 
 #: includes/class-cqseo-settings.php:71

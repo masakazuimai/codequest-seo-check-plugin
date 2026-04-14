@@ -85,7 +85,7 @@ class CQSEO_Admin {
                 'warning'        => __( '警告', 'orectic-seo-check' ),
                 'errorStatus'    => __( 'エラー', 'orectic-seo-check' ),
                 /* translators: %d: 残り回数 */
-                'freeRemaining'  => __( '無料枠残り: %d/10回', 'orectic-seo-check' ),
+                'freeRemaining'  => __( '無料枠残り: %d/3回', 'orectic-seo-check' ),
                 'timeout'        => __( 'タイムアウト: サーバーからの応答がありませんでした。', 'orectic-seo-check' ),
             ),
         ) );

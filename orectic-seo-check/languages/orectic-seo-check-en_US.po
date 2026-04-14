@@ -71,8 +71,8 @@ msgid "警告"
 msgstr "Warning"
 
 #, php-format
-msgid "無料枠残り: %d/10回"
-msgstr "Free quota remaining: %d/10"
+msgid "無料枠残り: %d/3回"
+msgstr "Free quota remaining: %d/3"
 
 msgid "タイムアウト: サーバーからの応答がありませんでした。"
 msgstr "Timeout: No response from the server."
@@ -147,8 +147,8 @@ msgstr "API Settings"
 msgid "APIキー"
 msgstr "API Key"
 
-msgid "APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（10回まで）で動作します。"
-msgstr "Set an API key to use your plan's check quota. Without a key, you can use the free tier (up to 10 checks)."
+msgid "APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（3回まで）で動作します。"
+msgstr "Set an API key to use your plan's check quota. Without a key, you can use the free tier (up to 3 checks)."
 
 msgid "APIキーを入力（任意）"
 msgstr "Enter API key (optional)"

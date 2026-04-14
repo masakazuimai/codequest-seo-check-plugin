@@ -83,7 +83,7 @@ class CQSEO_Settings {
      * セクション説明を表示
      */
     public function render_section_description() {
-        echo '<p>' . esc_html__( 'APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（10回まで）で動作します。', 'orectic-seo-check' ) . '</p>';
+        echo '<p>' . esc_html__( 'APIキーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠（3回まで）で動作します。', 'orectic-seo-check' ) . '</p>';
     }
 
     /**
