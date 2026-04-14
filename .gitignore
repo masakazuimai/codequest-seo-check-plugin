@@ -1,1 +1,34 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# エディタ・IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code 個人設定
+.claude/
+
+# ログ・一時ファイル
+*.log
+*.tmp
+.cache/
+
+# プラグイン配布用ZIP（ビルド成果物）
 *.zip
+
+# 依存関係
+node_modules/
+vendor/
+
+# 環境変数
+.env
+.env.local
+.env.*.local
