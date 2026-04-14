@@ -90,7 +90,7 @@ class CQSEO_Settings {
      * APIキー入力フィールドを表示
      */
     public function render_api_key_field() {
-        $api_key = get_option( 'cqseo_api_key', '' );
+        $api_key = CQSEO_API::get_api_key();
         ?>
         <input
             type="password"

@@ -3,7 +3,7 @@
  * Plugin Name: ORECTIC SEO CHECK
  * Plugin URI: https://seo.codequest.work
  * Description: ワンクリックでサイトのSEOスコアを診断。構造化データ・基本SEO・コンテンツ・技術SEOの4カテゴリで100点満点のスコアを表示します。
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: ORECTIC
@@ -18,10 +18,11 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'CQSEO_VERSION', '1.0.2' );
+define( 'CQSEO_VERSION', '1.0.3' );
 define( 'CQSEO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CQSEO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'CQSEO_API_BASE', 'https://codequest-seo-api.misty-night-a30e.workers.dev' );
+define( 'CQSEO_FREE_LIMIT', 3 );
 
 require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-admin.php';
 require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-api.php';
@@ -82,29 +83,17 @@ function cqseo_ajax_verify_key() {
         wp_send_json_error( array( 'message' => __( 'APIキーを入力してください。', 'orectic-seo-check' ) ) );
     }
 
-    $response = wp_remote_get(
-        CQSEO_API_BASE . '/user/profile',
-        array(
-            'headers' => array( 'X-API-Key' => $api_key ),
-            'timeout' => 15,
-        )
-    );
+    $api     = new CQSEO_API();
+    $profile = $api->get_user_profile( $api_key, 15 );
 
-    if ( is_wp_error( $response ) ) {
-        wp_send_json_error( array( 'message' => __( 'API接続エラー', 'orectic-seo-check' ) ) );
+    if ( is_wp_error( $profile ) ) {
+        wp_send_json_error( array( 'message' => $profile->get_error_message() ) );
     }
 
-    $code = wp_remote_retrieve_response_code( $response );
-
-    if ( 200 === $code ) {
-        $body = json_decode( wp_remote_retrieve_body( $response ), true );
-        $plan = isset( $body['plan'] ) ? sanitize_text_field( $body['plan'] ) : 'unknown';
-        /* translators: %s: プラン名 */
-        $message = sprintf( __( '認証成功（%sプラン）', 'orectic-seo-check' ), ucfirst( $plan ) );
-        wp_send_json_success( array( 'message' => $message ) );
-    } else {
-        wp_send_json_error( array( 'message' => __( 'APIキーが無効です', 'orectic-seo-check' ) ) );
-    }
+    $plan = isset( $profile['plan'] ) ? sanitize_text_field( $profile['plan'] ) : 'unknown';
+    /* translators: %s: プラン名 */
+    $message = sprintf( __( '認証成功（%sプラン）', 'orectic-seo-check' ), ucfirst( $plan ) );
+    wp_send_json_success( array( 'message' => $message ) );
 }
 add_action( 'wp_ajax_cqseo_verify_key', 'cqseo_ajax_verify_key' );
 

@@ -97,8 +97,8 @@ msgstr ""
 
 #: includes/class-cqseo-admin.php:88
 #, php-format
-#. translators: %d: 残り回数
-msgid "無料枠残り: %d/3回"
+#. translators: 1: 残り回数 2: 無料枠上限
+msgid "無料枠残り: %1$d/%2$d回"
 msgstr ""
 
 #: includes/class-cqseo-admin.php:89

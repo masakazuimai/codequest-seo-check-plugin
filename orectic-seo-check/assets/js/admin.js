@@ -238,13 +238,14 @@
     // 無料枠の残り回数表示
     var $remaining = $('#cqseo-free-remaining');
     if (typeof data.anonymousUsed !== 'undefined') {
-      var remaining = 3 - data.anonymousUsed;
+      var freeLimit = cqseoData.freeLimit;
+      var remaining = freeLimit - data.anonymousUsed;
+      remaining = remaining >= 0 ? remaining : 0;
       $remaining
         .text(
-          cqseoData.i18n.freeRemaining.replace(
-            '%d',
-            remaining >= 0 ? remaining : 0
-          )
+          cqseoData.i18n.freeRemaining
+            .replace('%1$d', remaining)
+            .replace('%2$d', freeLimit)
         )
         .show();
     } else {

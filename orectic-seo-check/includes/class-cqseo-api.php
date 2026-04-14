@@ -12,13 +12,61 @@ if ( ! defined( 'ABSPATH' ) ) {
 class CQSEO_API {
 
     /**
+     * 保存済みAPIキーを取得
+     *
+     * @return string APIキー（未設定時は空文字）
+     */
+    public static function get_api_key() {
+        return (string) get_option( 'cqseo_api_key', '' );
+    }
+
+    /**
+     * ユーザープロフィール（プラン情報）を取得
+     *
+     * @param string $api_key 検証対象のAPIキー。未指定時は保存済みのキーを使用。
+     * @param int    $timeout リクエストタイムアウト秒数
+     * @return array|WP_Error プロフィールデータまたはエラー
+     */
+    public function get_user_profile( $api_key = '', $timeout = 5 ) {
+        $api_key = '' !== $api_key ? $api_key : self::get_api_key();
+
+        if ( empty( $api_key ) ) {
+            return new WP_Error( 'cqseo_no_api_key', __( 'APIキーが設定されていません。', 'orectic-seo-check' ) );
+        }
+
+        $response = wp_remote_get(
+            CQSEO_API_BASE . '/user/profile',
+            array(
+                'headers' => array( 'X-API-Key' => $api_key ),
+                'timeout' => $timeout,
+            )
+        );
+
+        if ( is_wp_error( $response ) ) {
+            return new WP_Error( 'cqseo_api_error', __( 'API接続エラー', 'orectic-seo-check' ) );
+        }
+
+        $code = wp_remote_retrieve_response_code( $response );
+        if ( 200 !== $code ) {
+            return new WP_Error( 'cqseo_api_error', __( 'APIキーが無効です', 'orectic-seo-check' ) );
+        }
+
+        $body = json_decode( wp_remote_retrieve_body( $response ), true );
+        if ( ! is_array( $body ) ) {
+            return new WP_Error( 'cqseo_api_error', __( 'APIレスポンスの解析に失敗しました。', 'orectic-seo-check' ) );
+        }
+
+        return $body;
+    }
+
+    /**
      * SEO診断APIにリクエストを送信
      *
      * @param string $url 診断対象URL
      * @return array|WP_Error 診断結果またはエラー
      */
     public function check( $url ) {
-        $api_key = get_option( 'cqseo_api_key', '' );
+        $api_key = self::get_api_key();
         $locale  = $this->get_locale();
 
         $headers = array(

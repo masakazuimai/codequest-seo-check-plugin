@@ -69,10 +69,11 @@ class CQSEO_Admin {
         );
 
         wp_localize_script( 'cqseo-admin', 'cqseoData', array(
-            'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-            'nonce'   => wp_create_nonce( 'cqseo_check_nonce' ),
-            'siteUrl' => home_url( '/' ),
-            'i18n'    => array(
+            'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
+            'nonce'     => wp_create_nonce( 'cqseo_check_nonce' ),
+            'siteUrl'   => home_url( '/' ),
+            'freeLimit' => CQSEO_FREE_LIMIT,
+            'i18n'      => array(
                 'checking'       => __( '診断中...', 'orectic-seo-check' ),
                 'error'          => __( 'エラー', 'orectic-seo-check' ),
                 'runCheck'       => __( '診断する', 'orectic-seo-check' ),
@@ -84,8 +85,8 @@ class CQSEO_Admin {
                 'good'           => __( '合格', 'orectic-seo-check' ),
                 'warning'        => __( '警告', 'orectic-seo-check' ),
                 'errorStatus'    => __( 'エラー', 'orectic-seo-check' ),
-                /* translators: %d: 残り回数 */
-                'freeRemaining'  => __( '無料枠残り: %d/3回', 'orectic-seo-check' ),
+                /* translators: 1: 残り回数 2: 無料枠上限 */
+                'freeRemaining'  => __( '無料枠残り: %1$d/%2$d回', 'orectic-seo-check' ),
                 'timeout'        => __( 'タイムアウト: サーバーからの応答がありませんでした。', 'orectic-seo-check' ),
             ),
         ) );
@@ -206,8 +207,7 @@ class CQSEO_Admin {
      * @return string プラン名（未設定の場合は空文字）
      */
     private function get_plan_label() {
-        $api_key = get_option( 'cqseo_api_key', '' );
-        if ( empty( $api_key ) ) {
+        if ( empty( CQSEO_API::get_api_key() ) ) {
             return __( 'Free', 'orectic-seo-check' );
         }
 
@@ -216,27 +216,20 @@ class CQSEO_Admin {
             return $cached;
         }
 
-        $response = wp_remote_get(
-            CQSEO_API_BASE . '/user/profile',
-            array(
-                'headers' => array( 'X-API-Key' => $api_key ),
-                'timeout' => 5,
-            )
-        );
+        $api     = new CQSEO_API();
+        $profile = $api->get_user_profile();
 
-        if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+        if ( is_wp_error( $profile ) ) {
             return '';
         }
 
-        $body = json_decode( wp_remote_retrieve_body( $response ), true );
-        $plan = isset( $body['plan'] ) ? sanitize_text_field( $body['plan'] ) : '';
-
-        if ( ! empty( $plan ) ) {
-            $label = ucfirst( $plan ) . __( 'プラン', 'orectic-seo-check' );
-            set_transient( 'cqseo_plan_name', $label, HOUR_IN_SECONDS );
-            return $label;
+        $plan = isset( $profile['plan'] ) ? sanitize_text_field( $profile['plan'] ) : '';
+        if ( empty( $plan ) ) {
+            return '';
         }
 
-        return '';
+        $label = ucfirst( $plan ) . __( 'プラン', 'orectic-seo-check' );
+        set_transient( 'cqseo_plan_name', $label, HOUR_IN_SECONDS );
+        return $label;
     }
 }

@@ -71,8 +71,8 @@ msgid "警告"
 msgstr "Warning"
 
 #, php-format
-msgid "無料枠残り: %d/3回"
-msgstr "Free quota remaining: %d/3"
+msgid "無料枠残り: %1$d/%2$d回"
+msgstr "Free quota remaining: %1$d/%2$d"
 
 msgid "タイムアウト: サーバーからの応答がありませんでした。"
 msgstr "Timeout: No response from the server."
