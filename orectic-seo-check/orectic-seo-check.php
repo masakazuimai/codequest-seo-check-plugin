@@ -3,7 +3,7 @@
  * Plugin Name: ORECTIC SEO CHECK
  * Plugin URI: https://seo.codequest.work
  * Description: ワンクリックでサイトのSEOスコアを診断。構造化データ・基本SEO・コンテンツ・技術SEOの4カテゴリで100点満点のスコアを表示します。
- * Version: 1.0.3
+ * Version: 1.0.4
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: ORECTIC
@@ -18,11 +18,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'CQSEO_VERSION', '1.0.3' );
+define( 'CQSEO_VERSION', '1.0.4' );
 define( 'CQSEO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CQSEO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'CQSEO_API_BASE', 'https://codequest-seo-api.misty-night-a30e.workers.dev' );
 define( 'CQSEO_FREE_LIMIT', 3 );
+define( 'CQSEO_RATE_LIMIT_PER_MIN', 10 );
 
 require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-admin.php';
 require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-api.php';
@@ -49,6 +50,13 @@ function cqseo_ajax_run_check() {
     if ( ! current_user_can( 'manage_options' ) ) {
         wp_send_json_error( array( 'message' => __( '権限がありません。', 'orectic-seo-check' ) ) );
     }
+
+    $rate_key = 'cqseo_rate_' . get_current_user_id();
+    $count    = (int) get_transient( $rate_key );
+    if ( $count >= CQSEO_RATE_LIMIT_PER_MIN ) {
+        wp_send_json_error( array( 'message' => __( 'リクエスト回数の上限に達しました。1分後に再試行してください。', 'orectic-seo-check' ) ) );
+    }
+    set_transient( $rate_key, $count + 1, MINUTE_IN_SECONDS );
 
     $url = isset( $_POST['url'] ) ? esc_url_raw( wp_unslash( $_POST['url'] ) ) : '';
 

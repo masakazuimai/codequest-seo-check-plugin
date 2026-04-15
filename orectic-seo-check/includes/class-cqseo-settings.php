@@ -58,8 +58,9 @@ class CQSEO_Settings {
             'cqseo_api_key',
             array(
                 'type'              => 'string',
-                'sanitize_callback' => 'sanitize_text_field',
+                'sanitize_callback' => array( 'CQSEO_API', 'sanitize_and_encrypt_api_key' ),
                 'default'           => '',
+                'show_in_rest'      => false,
             )
         );
 

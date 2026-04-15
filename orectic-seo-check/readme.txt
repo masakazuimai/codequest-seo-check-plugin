@@ -4,7 +4,7 @@ Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,12 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.0.4 =
+* Security: API keys are now encrypted at rest using AES-256-CBC (legacy plain-text values are auto-migrated on next save)
+* Security: Added per-user rate limiting (10 requests/minute) on the diagnosis AJAX endpoint
+* Security: Generic API error messages to prevent information leakage
+* No user-facing functional changes
 
 = 1.0.3 =
 * Internal refactoring: unified free tier limit via CQSEO_FREE_LIMIT constant

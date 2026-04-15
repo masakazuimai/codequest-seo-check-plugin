@@ -12,12 +12,87 @@ if ( ! defined( 'ABSPATH' ) ) {
 class CQSEO_API {
 
     /**
-     * 保存済みAPIキーを取得
+     * 暗号化済み値を識別するプレフィックス
+     */
+    const ENCRYPTED_PREFIX = 'ocs1:';
+
+    /**
+     * 保存済みAPIキーを取得（暗号化されていれば復号、平文ならそのまま返却）
      *
      * @return string APIキー（未設定時は空文字）
      */
     public static function get_api_key() {
-        return (string) get_option( 'cqseo_api_key', '' );
+        $stored = (string) get_option( 'cqseo_api_key', '' );
+        if ( '' === $stored ) {
+            return '';
+        }
+        if ( 0 === strpos( $stored, self::ENCRYPTED_PREFIX ) ) {
+            return self::decrypt( substr( $stored, strlen( self::ENCRYPTED_PREFIX ) ) );
+        }
+        return $stored;
+    }
+
+    /**
+     * APIキー保存時のサニタイズ＋暗号化コールバック
+     *
+     * @param string $value 入力されたAPIキー
+     * @return string 暗号化済み文字列（または空文字）
+     */
+    public static function sanitize_and_encrypt_api_key( $value ) {
+        $value = sanitize_text_field( $value );
+        if ( '' === $value ) {
+            return '';
+        }
+        $encrypted = self::encrypt( $value );
+        return '' !== $encrypted ? self::ENCRYPTED_PREFIX . $encrypted : '';
+    }
+
+    /**
+     * 暗号化キーを生成（AUTH_KEY/SECURE_AUTH_KEY 由来）
+     *
+     * @return string 32バイト鍵
+     */
+    private static function get_encryption_key() {
+        $secret = ( defined( 'AUTH_KEY' ) ? AUTH_KEY : '' ) . ( defined( 'SECURE_AUTH_KEY' ) ? SECURE_AUTH_KEY : '' );
+        return hash( 'sha256', $secret, true );
+    }
+
+    /**
+     * 文字列を暗号化（AES-256-CBC）
+     *
+     * @param string $plain 平文
+     * @return string base64エンコード済み暗号文（失敗時は空文字）
+     */
+    private static function encrypt( $plain ) {
+        if ( ! function_exists( 'openssl_encrypt' ) ) {
+            return '';
+        }
+        $iv         = openssl_random_pseudo_bytes( 16 );
+        $ciphertext = openssl_encrypt( $plain, 'AES-256-CBC', self::get_encryption_key(), OPENSSL_RAW_DATA, $iv );
+        if ( false === $ciphertext ) {
+            return '';
+        }
+        return base64_encode( $iv . $ciphertext );
+    }
+
+    /**
+     * 文字列を復号
+     *
+     * @param string $encoded base64エンコード済み暗号文
+     * @return string 平文（失敗時は空文字）
+     */
+    private static function decrypt( $encoded ) {
+        if ( ! function_exists( 'openssl_decrypt' ) ) {
+            return '';
+        }
+        $raw = base64_decode( $encoded, true );
+        if ( false === $raw || strlen( $raw ) < 17 ) {
+            return '';
+        }
+        $iv         = substr( $raw, 0, 16 );
+        $ciphertext = substr( $raw, 16 );
+        $plain      = openssl_decrypt( $ciphertext, 'AES-256-CBC', self::get_encryption_key(), OPENSSL_RAW_DATA, $iv );
+        return false !== $plain ? $plain : '';
     }
 
     /**
@@ -90,8 +165,7 @@ class CQSEO_API {
         if ( is_wp_error( $response ) ) {
             return new WP_Error(
                 'cqseo_api_error',
-                /* translators: %s: エラーメッセージ */
-                sprintf( __( 'API接続エラー: %s', 'orectic-seo-check' ), $response->get_error_message() )
+                __( 'API接続エラーが発生しました。しばらく経ってから再度お試しください。', 'orectic-seo-check' )
             );
         }
 
