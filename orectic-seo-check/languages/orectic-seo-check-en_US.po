@@ -178,23 +178,23 @@ msgstr "ORECTIC SEO CHECK Settings"
 msgid "無料登録で月10回に増量 →"
 msgstr "Sign up free for 10 checks/month →"
 
-msgid "技術SEO（無料プランでは非対応）"
-msgstr "Technical SEO (not available on free plan)"
+msgid "技術SEO（基本3項目のみ）"
+msgstr "Technical SEO (basic 3 items only)"
 
-msgid "HTTPS・モバイル対応・ページ速度・Core Web Vitals"
-msgstr "HTTPS, Mobile-friendly, Page Speed & Core Web Vitals"
+msgid "セキュリティ・リダイレクト・サイトマップ等の詳細診断は有料プランで利用可能"
+msgstr "Detailed checks for security, redirects, sitemap, etc. available on paid plans"
 
-msgid "無料登録で診断可能に →"
-msgstr "Sign up free to unlock →"
+msgid "料金プランを見る →"
+msgstr "View pricing plans →"
 
-msgid "改善コードで残りのスコアを伸ばせます"
-msgstr "Improve your remaining score with auto-generated fix code"
+msgid "無料登録で月10回・診断履歴が使えます"
+msgstr "Sign up free for 10 checks/month and diagnosis history"
 
-msgid "無料登録して改善コードを見る"
-msgstr "Sign up free to see fix code"
+msgid "無料で月10回に増量する"
+msgstr "Sign up free - 10 checks per month"
 
 msgid "クレジットカード不要・30秒で登録完了"
 msgstr "No credit card required - sign up in 30 seconds"
 
-msgid "→ 無料登録で改善コードを確認"
-msgstr "→ Sign up free to see fix code"
+msgid "無料登録で月10回に増量"
+msgstr "Sign up free for 10 checks/month"

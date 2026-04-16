@@ -91,7 +91,7 @@
           '<div class="cqseo-locked-desc">' +
           escapeHtml(cqseoData.i18n.techLockedDesc) +
           '</div>' +
-          '<a href="' + withUtm(cqseoData.signupUrl, 'tech-locked') + '" target="_blank" rel="noopener" class="cqseo-locked-cta">' +
+          '<a href="' + withUtm(cqseoData.pricingUrl, 'tech-locked') + '" target="_blank" rel="noopener" class="cqseo-locked-cta">' +
           escapeHtml(cqseoData.i18n.techLockedCta) +
           '</a>' +
           '</div>';

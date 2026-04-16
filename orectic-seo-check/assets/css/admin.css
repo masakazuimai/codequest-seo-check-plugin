@@ -338,17 +338,24 @@
     }
 }
 
-/* 無料枠アップグレードリンク */
+/* 無料枠アップグレードボタン */
 .cqseo-upgrade-link {
-    color: #2271b1;
-    text-decoration: none;
-    font-weight: 500;
+    display: inline-block;
+    color: #fff;
+    background: #2271b1;
+    border-radius: 4px;
+    padding: 2px 10px;
     margin-left: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.2s;
 }
 
 .cqseo-upgrade-link:hover {
-    text-decoration: underline;
-    color: #135e96;
+    background: #135e96;
+    color: #fff;
+    text-decoration: none;
 }
 
 /* プライマリCTAブロック */
@@ -423,27 +430,40 @@
     display: inline-block;
     font-size: 16px;
     font-weight: 600;
-    color: #2271b1;
+    color: #fff;
+    background: #2271b1;
+    border-radius: 4px;
+    padding: 6px 16px;
     text-decoration: none;
+    transition: background 0.2s;
 }
 
 .cqseo-locked-cta:hover {
-    text-decoration: underline;
+    background: #135e96;
+    color: #fff;
+    text-decoration: none;
 }
 
-/* チェック項目 インラインCTAリンク */
+/* チェック項目 インラインCTAボタン */
 .cqseo-check-fix-link {
     display: inline-block;
     font-size: 16px;
-    color: #2271b1;
-    text-decoration: none;
-    margin-top: 4px;
+    color: #fff;
+    background: #2271b1;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 12px;
+    margin-top: 6px;
     font-weight: 500;
+    text-decoration: none;
+    line-height: 1.6;
+    transition: background 0.2s;
 }
 
 .cqseo-check-fix-link:hover {
-    text-decoration: underline;
-    color: #135e96;
+    background: #135e96;
+    color: #fff;
+    text-decoration: none;
 }
 
 /* 導線リンク折りたたみ */

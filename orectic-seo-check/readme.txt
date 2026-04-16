@@ -4,7 +4,7 @@ Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,12 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.0.6 =
+* Fixed CTA text to accurately reflect free plan features (no misleading claims)
+* Technical SEO lock display now correctly shows "basic 3 items only" with link to pricing
+* Inline CTA links and upgrade links changed from text to small button style for better visibility
+* Updated bilingual translations for corrected UI strings
 
 = 1.0.5 =
 * Added primary CTA block after score display to improve conversion flow
