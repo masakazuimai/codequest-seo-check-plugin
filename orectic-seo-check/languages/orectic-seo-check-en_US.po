@@ -174,3 +174,27 @@ msgstr "Connection error"
 
 msgid "ORECTIC SEO CHECK 設定"
 msgstr "ORECTIC SEO CHECK Settings"
+
+msgid "無料登録で月10回に増量 →"
+msgstr "Sign up free for 10 checks/month →"
+
+msgid "技術SEO（無料プランでは非対応）"
+msgstr "Technical SEO (not available on free plan)"
+
+msgid "HTTPS・モバイル対応・ページ速度・Core Web Vitals"
+msgstr "HTTPS, Mobile-friendly, Page Speed & Core Web Vitals"
+
+msgid "無料登録で診断可能に →"
+msgstr "Sign up free to unlock →"
+
+msgid "改善コードで残りのスコアを伸ばせます"
+msgstr "Improve your remaining score with auto-generated fix code"
+
+msgid "無料登録して改善コードを見る"
+msgstr "Sign up free to see fix code"
+
+msgid "クレジットカード不要・30秒で登録完了"
+msgstr "No credit card required - sign up in 30 seconds"
+
+msgid "→ 無料登録で改善コードを確認"
+msgstr "→ Sign up free to see fix code"

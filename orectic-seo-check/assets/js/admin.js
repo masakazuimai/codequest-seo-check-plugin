@@ -5,6 +5,7 @@
   'use strict';
 
   var CIRCUMFERENCE = 2 * Math.PI * 54; // 339.292
+  var UTM_BASE = 'utm_source=wp-plugin&utm_campaign=wp-plugin-v1';
 
   var categoryLabels = {
     structured_data: cqseoData.i18n.structuredData,
@@ -24,6 +25,14 @@
     warning: cqseoData.i18n.warning,
     error: cqseoData.i18n.errorStatus,
   };
+
+  /**
+   * UTMパラメータ付きURLを生成
+   */
+  function withUtm(url, medium) {
+    var sep = url.indexOf('?') === -1 ? '?' : '&';
+    return url + sep + UTM_BASE + '&utm_medium=' + encodeURIComponent(medium);
+  }
 
   /**
    * スコアに応じたCSSクラスを返す
@@ -58,9 +67,9 @@
   }
 
   /**
-   * カテゴリ別スコアを描画
+   * カテゴリ別スコアを描画（技術SEO max===0 のロック表示対応）
    */
-  function renderCategories(categories) {
+  function renderCategories(categories, isAnonymous) {
     var $container = $('#cqseo-categories');
     $container.empty();
 
@@ -70,6 +79,27 @@
       if (!categories[key]) return;
 
       var cat = categories[key];
+
+      // 技術SEO: max===0 の場合はロック表示
+      if (key === 'technical' && cat.max === 0 && isAnonymous) {
+        var lockHtml =
+          '<div class="cqseo-category-card cqseo-category-locked">' +
+          '<div class="cqseo-category-name">' +
+          '<span class="cqseo-lock-icon">&#128274;</span> ' +
+          escapeHtml(cqseoData.i18n.techLocked) +
+          '</div>' +
+          '<div class="cqseo-locked-desc">' +
+          escapeHtml(cqseoData.i18n.techLockedDesc) +
+          '</div>' +
+          '<a href="' + withUtm(cqseoData.signupUrl, 'tech-locked') + '" target="_blank" rel="noopener" class="cqseo-locked-cta">' +
+          escapeHtml(cqseoData.i18n.techLockedCta) +
+          '</a>' +
+          '</div>';
+
+        $container.append(lockHtml);
+        return;
+      }
+
       var percentage = cat.max > 0 ? (cat.score / cat.max) * 100 : 0;
 
       var html =
@@ -104,9 +134,39 @@
   }
 
   /**
-   * チェック項目一覧を描画
+   * プライマリCTAを描画（スコア直下、カテゴリと項目の間）
    */
-  function renderChecks(checks) {
+  function renderPrimaryCta(score, maxScore, isAnonymous) {
+    var $cta = $('#cqseo-primary-cta');
+    if (!isAnonymous) {
+      $cta.hide();
+      return;
+    }
+
+    var gap = maxScore - score;
+    var html =
+      '<div class="cqseo-cta-inner">' +
+      '<div class="cqseo-cta-score">' +
+      escapeHtml(score + ' / ' + maxScore) +
+      '</div>' +
+      '<div class="cqseo-cta-title">' +
+      escapeHtml(cqseoData.i18n.ctaTitle) +
+      '</div>' +
+      '<a href="' + withUtm(cqseoData.signupUrl, 'primary-cta') + '" target="_blank" rel="noopener" class="cqseo-cta-button">' +
+      escapeHtml(cqseoData.i18n.ctaButton) +
+      '</a>' +
+      '<div class="cqseo-cta-sub">' +
+      escapeHtml(cqseoData.i18n.ctaSub) +
+      '</div>' +
+      '</div>';
+
+    $cta.html(html).show();
+  }
+
+  /**
+   * チェック項目一覧を描画（失敗項目にインラインCTAリンク追加）
+   */
+  function renderChecks(checks, isAnonymous) {
     var $container = $('#cqseo-checks');
     $container.empty();
 
@@ -138,6 +198,15 @@
             '</div>'
           : '';
 
+        // 失敗項目にインラインCTAリンクを追加
+        var fixLinkHtml = '';
+        if (isAnonymous && check.status !== 'good') {
+          fixLinkHtml =
+            '<a href="' + withUtm(cqseoData.seoCheckUrl, 'inline-fix') + '" target="_blank" rel="noopener" class="cqseo-check-fix-link">' +
+            escapeHtml(cqseoData.i18n.fixCode) +
+            '</a>';
+        }
+
         var html =
           '<div class="cqseo-check-item">' +
           '<div class="cqseo-check-status cqseo-status-' +
@@ -153,6 +222,7 @@
           escapeHtml(check.message) +
           '</div>' +
           suggestionHtml +
+          fixLinkHtml +
           '</div>' +
           '<div class="cqseo-check-score">' +
           check.score +
@@ -231,23 +301,29 @@
    * 結果を表示
    */
   function displayResults(data) {
-    updateScoreCircle(data.score, data.maxScore);
-    renderCategories(data.categories);
-    renderChecks(data.checks);
+    var isAnonymous = typeof data.anonymousUsed !== 'undefined';
 
-    // 無料枠の残り回数表示
+    updateScoreCircle(data.score, data.maxScore);
+    renderCategories(data.categories, isAnonymous);
+    renderPrimaryCta(data.score, data.maxScore, isAnonymous);
+    renderChecks(data.checks, isAnonymous);
+
+    // 無料枠の残り回数表示（アップグレードリンク付き）
     var $remaining = $('#cqseo-free-remaining');
-    if (typeof data.anonymousUsed !== 'undefined') {
+    if (isAnonymous) {
       var freeLimit = cqseoData.freeLimit;
       var remaining = freeLimit - data.anonymousUsed;
       remaining = remaining >= 0 ? remaining : 0;
-      $remaining
-        .text(
-          cqseoData.i18n.freeRemaining
-            .replace('%1$d', remaining)
-            .replace('%2$d', freeLimit)
-        )
-        .show();
+      var remainText = cqseoData.i18n.freeRemaining
+        .replace('%1$d', remaining)
+        .replace('%2$d', freeLimit);
+
+      $remaining.html(
+        escapeHtml(remainText) +
+        ' <a href="' + withUtm(cqseoData.signupUrl, 'free-remaining') + '" target="_blank" rel="noopener" class="cqseo-upgrade-link">' +
+        escapeHtml(cqseoData.i18n.freeUpgrade) +
+        '</a>'
+      ).show();
     } else {
       $remaining.hide();
     }

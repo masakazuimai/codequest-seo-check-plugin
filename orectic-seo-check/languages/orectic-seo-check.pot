@@ -241,3 +241,35 @@ msgstr ""
 #: includes/class-cqseo-settings.php:152
 msgid "ORECTIC SEO CHECK 設定"
 msgstr ""
+
+#: includes/class-cqseo-admin.php
+msgid "無料登録で月10回に増量 →"
+msgstr ""
+
+#: includes/class-cqseo-admin.php
+msgid "技術SEO（無料プランでは非対応）"
+msgstr ""
+
+#: includes/class-cqseo-admin.php
+msgid "HTTPS・モバイル対応・ページ速度・Core Web Vitals"
+msgstr ""
+
+#: includes/class-cqseo-admin.php
+msgid "無料登録で診断可能に →"
+msgstr ""
+
+#: includes/class-cqseo-admin.php
+msgid "改善コードで残りのスコアを伸ばせます"
+msgstr ""
+
+#: includes/class-cqseo-admin.php
+msgid "無料登録して改善コードを見る"
+msgstr ""
+
+#: includes/class-cqseo-admin.php
+msgid "クレジットカード不要・30秒で登録完了"
+msgstr ""
+
+#: includes/class-cqseo-admin.php
+msgid "→ 無料登録で改善コードを確認"
+msgstr ""

@@ -4,7 +4,7 @@ Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,16 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.0.5 =
+* Added primary CTA block after score display to improve conversion flow
+* Free quota display now includes signup link ("Sign up free for 10 checks/month")
+* Technical SEO category shows lock UI when max score is 0 (instead of confusing "0/0")
+* Failed check items now show inline link to improvement code generation
+* Feature cards section collapsed by default (expandable via toggle)
+* All external links now include UTM tracking parameters
+* API response now preserves `layers` (ranking/serp/technical) and `spamWarnings` fields
+* Added bilingual translations for all new UI strings
 
 = 1.0.4 =
 * Security: API keys are now encrypted at rest using AES-256-CBC (legacy plain-text values are auto-migrated on next save)

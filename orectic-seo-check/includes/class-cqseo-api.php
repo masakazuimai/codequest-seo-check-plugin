@@ -197,10 +197,12 @@ class CQSEO_API {
             'score'      => isset( $data['score'] ) ? absint( $data['score'] ) : 0,
             'maxScore'   => isset( $data['maxScore'] ) ? absint( $data['maxScore'] ) : 100,
             'categories' => array(),
+            'layers'     => array(),
             'checks'     => array(),
         );
 
         $valid_categories = array( 'structured_data', 'basic_seo', 'content', 'technical' );
+        $valid_layers     = array( 'ranking', 'serp', 'technical' );
 
         if ( isset( $data['categories'] ) && is_array( $data['categories'] ) ) {
             foreach ( $valid_categories as $cat_key ) {
@@ -208,6 +210,17 @@ class CQSEO_API {
                     $sanitized['categories'][ $cat_key ] = array(
                         'score' => absint( $data['categories'][ $cat_key ]['score'] ),
                         'max'   => absint( $data['categories'][ $cat_key ]['max'] ),
+                    );
+                }
+            }
+        }
+
+        if ( isset( $data['layers'] ) && is_array( $data['layers'] ) ) {
+            foreach ( $valid_layers as $layer_key ) {
+                if ( isset( $data['layers'][ $layer_key ] ) ) {
+                    $sanitized['layers'][ $layer_key ] = array(
+                        'score' => absint( $data['layers'][ $layer_key ]['score'] ),
+                        'max'   => absint( $data['layers'][ $layer_key ]['max'] ),
                     );
                 }
             }
@@ -221,6 +234,9 @@ class CQSEO_API {
                     'category'   => isset( $check['category'] ) && in_array( $check['category'], $valid_categories, true )
                         ? $check['category']
                         : '',
+                    'layer'      => isset( $check['layer'] ) && in_array( $check['layer'], $valid_layers, true )
+                        ? $check['layer']
+                        : 'technical',
                     'status'     => isset( $check['status'] ) && in_array( $check['status'], array( 'good', 'warning', 'error' ), true )
                         ? $check['status']
                         : 'error',
@@ -229,6 +245,16 @@ class CQSEO_API {
                     'value'      => isset( $check['value'] ) ? sanitize_text_field( $check['value'] ) : '',
                     'message'    => isset( $check['message'] ) ? sanitize_text_field( $check['message'] ) : '',
                     'suggestion' => isset( $check['suggestion'] ) ? sanitize_text_field( $check['suggestion'] ) : null,
+                );
+            }
+        }
+
+        if ( isset( $data['spamWarnings'] ) && is_array( $data['spamWarnings'] ) ) {
+            $sanitized['spamWarnings'] = array();
+            foreach ( $data['spamWarnings'] as $warning ) {
+                $sanitized['spamWarnings'][] = array(
+                    'type'    => isset( $warning['type'] ) ? sanitize_text_field( $warning['type'] ) : '',
+                    'message' => isset( $warning['message'] ) ? sanitize_text_field( $warning['message'] ) : '',
                 );
             }
         }
