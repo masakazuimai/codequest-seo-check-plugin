@@ -95,10 +95,10 @@ class CQSEO_Admin {
                 'techLocked'     => __( '技術SEO（基本3項目のみ）', 'orectic-seo-check' ),
                 'techLockedDesc' => __( 'セキュリティ・リダイレクト・サイトマップ等の詳細診断は有料プランで利用可能', 'orectic-seo-check' ),
                 'techLockedCta'  => __( '料金プランを見る →', 'orectic-seo-check' ),
-                'ctaTitle'       => __( '最も効果の高い改善コードを1件生成できます', 'orectic-seo-check' ),
-                'ctaButton'      => __( '改善コードを見る', 'orectic-seo-check' ),
-                'ctaSub'         => __( '登録不要・無料で1件生成可能', 'orectic-seo-check' ),
-                'fixCode'        => __( '改善コードを見る', 'orectic-seo-check' ),
+                'ctaTitle'       => __( 'さらに詳しい診断と改善コード生成が利用できます', 'orectic-seo-check' ),
+                'ctaButton'      => __( 'Web版で詳しく診断する', 'orectic-seo-check' ),
+                'ctaSub'         => __( 'Web版で診断すると改善コードも生成できます', 'orectic-seo-check' ),
+                'fixCode'        => __( 'Web版で改善する', 'orectic-seo-check' ),
             ),
         ) );
     }

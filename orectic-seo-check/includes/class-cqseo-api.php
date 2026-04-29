@@ -174,7 +174,8 @@ class CQSEO_API {
         $data = json_decode( $body, true );
 
         if ( 200 !== $code ) {
-            $message = isset( $data['message'] ) ? sanitize_text_field( $data['message'] ) : __( '不明なエラーが発生しました。', 'orectic-seo-check' );
+            $api_msg = isset( $data['error'] ) ? $data['error'] : ( isset( $data['message'] ) ? $data['message'] : '' );
+            $message = ! empty( $api_msg ) ? sanitize_text_field( $api_msg ) : __( '不明なエラーが発生しました。', 'orectic-seo-check' );
             return new WP_Error( 'cqseo_api_error', $message );
         }
 
