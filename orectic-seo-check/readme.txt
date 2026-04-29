@@ -4,7 +4,7 @@ Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,9 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.2.1 =
+* Fixed: Primary CTA "View improvement code" button now links to SEO check page instead of signup page
 
 = 1.2.0 =
 * New: Added Competitor Keyword Research card to feature discovery section

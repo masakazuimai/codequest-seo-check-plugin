@@ -152,7 +152,7 @@
       '<div class="cqseo-cta-title">' +
       escapeHtml(cqseoData.i18n.ctaTitle) +
       '</div>' +
-      '<a href="' + withUtm(cqseoData.signupUrl, 'primary-cta') + '" target="_blank" rel="noopener" class="cqseo-cta-button">' +
+      '<a href="' + withUtm(cqseoData.seoCheckUrl, 'primary-cta') + '" target="_blank" rel="noopener" class="cqseo-cta-button">' +
       escapeHtml(cqseoData.i18n.ctaButton) +
       '</a>' +
       '<div class="cqseo-cta-sub">' +
