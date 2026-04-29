@@ -90,15 +90,15 @@ class CQSEO_Admin {
                 'errorStatus'    => __( 'エラー', 'orectic-seo-check' ),
                 /* translators: 1: 残り回数 2: 無料枠上限 */
                 'freeRemaining'  => __( '無料枠残り: %1$d/%2$d回', 'orectic-seo-check' ),
-                'freeUpgrade'    => __( '無料登録で月10回に増量 →', 'orectic-seo-check' ),
+                'freeUpgrade'    => __( '登録すると月次リセット + 履歴保存 →', 'orectic-seo-check' ),
                 'timeout'        => __( 'タイムアウト: サーバーからの応答がありませんでした。', 'orectic-seo-check' ),
                 'techLocked'     => __( '技術SEO（基本3項目のみ）', 'orectic-seo-check' ),
                 'techLockedDesc' => __( 'セキュリティ・リダイレクト・サイトマップ等の詳細診断は有料プランで利用可能', 'orectic-seo-check' ),
                 'techLockedCta'  => __( '料金プランを見る →', 'orectic-seo-check' ),
-                'ctaTitle'       => __( '無料登録で月10回・診断履歴が使えます', 'orectic-seo-check' ),
-                'ctaButton'      => __( '無料で月10回に増量する', 'orectic-seo-check' ),
-                'ctaSub'         => __( 'クレジットカード不要・30秒で登録完了', 'orectic-seo-check' ),
-                'fixCode'        => __( '無料登録で月10回に増量', 'orectic-seo-check' ),
+                'ctaTitle'       => __( '最も効果の高い改善コードを1件生成できます', 'orectic-seo-check' ),
+                'ctaButton'      => __( '改善コードを見る', 'orectic-seo-check' ),
+                'ctaSub'         => __( '登録不要・無料で1件生成可能', 'orectic-seo-check' ),
+                'fixCode'        => __( '改善コードを見る', 'orectic-seo-check' ),
             ),
         ) );
     }
@@ -177,7 +177,7 @@ class CQSEO_Admin {
                         <a href="https://seo.codequest.work/ja/seo-check?utm_source=wp-plugin&utm_medium=upsell-card&utm_campaign=wp-plugin-v1" target="_blank" rel="noopener" class="cqseo-upsell-card">
                             <span class="cqseo-upsell-icon dashicons dashicons-editor-code"></span>
                             <span class="cqseo-upsell-label"><?php echo esc_html__( '改善コード自動生成', 'orectic-seo-check' ); ?></span>
-                            <span class="cqseo-upsell-desc"><?php echo esc_html__( 'コピペで実装できる改善コードを生成', 'orectic-seo-check' ); ?></span>
+                            <span class="cqseo-upsell-desc"><?php echo esc_html__( '全プランで利用可能（件数制限あり）', 'orectic-seo-check' ); ?></span>
                         </a>
                         <a href="https://seo.codequest.work/ja/keyword?utm_source=wp-plugin&utm_medium=upsell-card&utm_campaign=wp-plugin-v1" target="_blank" rel="noopener" class="cqseo-upsell-card">
                             <span class="cqseo-upsell-icon dashicons dashicons-search"></span>
@@ -203,6 +203,11 @@ class CQSEO_Admin {
                             <span class="cqseo-upsell-icon dashicons dashicons-admin-site-alt3"></span>
                             <span class="cqseo-upsell-label"><?php echo esc_html__( 'サイト全体診断', 'orectic-seo-check' ); ?></span>
                             <span class="cqseo-upsell-desc"><?php echo esc_html__( '全ページのSEOスコアを一括チェック', 'orectic-seo-check' ); ?></span>
+                        </a>
+                        <a href="https://seo.codequest.work/ja/competitor-keywords?utm_source=wp-plugin&utm_medium=upsell-card&utm_campaign=wp-plugin-v1" target="_blank" rel="noopener" class="cqseo-upsell-card">
+                            <span class="cqseo-upsell-icon dashicons dashicons-visibility"></span>
+                            <span class="cqseo-upsell-label"><?php echo esc_html__( '競合キーワード調査', 'orectic-seo-check' ); ?></span>
+                            <span class="cqseo-upsell-desc"><?php echo esc_html__( '競合サイトのランクインキーワードを分析', 'orectic-seo-check' ); ?></span>
                         </a>
                     </div>
                     <p class="cqseo-upsell-footer">
