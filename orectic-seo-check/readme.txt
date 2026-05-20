@@ -2,9 +2,9 @@
 Contributors: masakazuimai
 Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,10 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.2.3 =
+* Compatibility: Tested with WordPress 7.0
+* No functional changes
 
 = 1.2.2 =
 * Fixed: API error messages (e.g. quota exceeded) now display correctly instead of "Unknown error"
