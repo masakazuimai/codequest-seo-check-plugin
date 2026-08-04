@@ -1,281 +1,279 @@
-# Copyright (C) 2026 ORECTIC
+# Japanese translations for ORECTIC SEO CHECK.
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
 "Project-Id-Version: ORECTIC SEO CHECK 1.3.0\n"
 "Report-Msgid-Bugs-To: https://orecticdesign.com/contact/\n"
-"POT-Creation-Date: 2026-08-04 12:08+0900\n"
+"PO-Revision-Date: 2026-08-04 12:08+0900\n"
+"Last-Translator: masakazuimai <orecticdesign@gmail.com>\n"
+"Language-Team: Japanese <https://ja.wordpress.org/team/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"X-Generator: xgettext\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: orectic-seo-check.php:51 orectic-seo-check.php:85
 msgid "You do not have permission."
-msgstr ""
+msgstr "権限がありません。"
 
 #: orectic-seo-check.php:57
 msgid "Rate limit reached. Please try again in 1 minute."
-msgstr ""
+msgstr "リクエスト回数の上限に達しました。1分後に再試行してください。"
 
 #: orectic-seo-check.php:64
 msgid "Please enter a valid URL."
-msgstr ""
+msgstr "有効な URL を入力してください。"
 
 #: orectic-seo-check.php:91
 msgid "Please enter an API key."
-msgstr ""
+msgstr "API キーを入力してください。"
 
 #. translators: %s: plan name (e.g. Free, Pro)
 #: orectic-seo-check.php:103
 #, php-format
 msgid "Authentication successful (%s plan)"
-msgstr ""
+msgstr "認証成功 (%s プラン)"
 
 #: includes/class-cqseo-admin.php:27 includes/class-cqseo-admin.php:28
 #: includes/class-cqseo-admin.php:114
 msgid "ORECTIC SEO CHECK"
-msgstr ""
+msgstr "ORECTIC SEO CHECK"
 
 #: includes/class-cqseo-admin.php:38 includes/class-cqseo-admin.php:39
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: includes/class-cqseo-admin.php:80
 msgid "Checking..."
-msgstr ""
+msgstr "診断中…"
 
 #: includes/class-cqseo-admin.php:81 includes/class-cqseo-admin.php:90
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: includes/class-cqseo-admin.php:82 includes/class-cqseo-admin.php:132
 msgid "Run Check"
-msgstr ""
+msgstr "診断する"
 
 #: includes/class-cqseo-admin.php:83
 msgid "Score"
-msgstr ""
+msgstr "スコア"
 
 #: includes/class-cqseo-admin.php:84
 msgid "Structured Data"
-msgstr ""
+msgstr "構造化データ"
 
 #: includes/class-cqseo-admin.php:85
 msgid "Basic SEO"
-msgstr ""
+msgstr "基本 SEO"
 
 #: includes/class-cqseo-admin.php:86
 msgid "Content"
-msgstr ""
+msgstr "コンテンツ"
 
 #: includes/class-cqseo-admin.php:87
 msgid "Technical SEO"
-msgstr ""
+msgstr "技術 SEO"
 
 #: includes/class-cqseo-admin.php:88
 msgid "Pass"
-msgstr ""
+msgstr "合格"
 
 #: includes/class-cqseo-admin.php:89
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #. translators: 1: remaining checks, 2: free tier limit
 #: includes/class-cqseo-admin.php:92
 #, php-format
 msgid "Free checks remaining: %1$d/%2$d"
-msgstr ""
+msgstr "無料枠残り: %1$d/%2$d回"
 
 #: includes/class-cqseo-admin.php:93
 msgid "Sign up for monthly reset + history →"
-msgstr ""
+msgstr "登録すると月次リセット + 履歴保存 →"
 
 #: includes/class-cqseo-admin.php:94
 msgid "Timeout: No response from the server."
-msgstr ""
+msgstr "タイムアウト: サーバーからの応答がありませんでした。"
 
 #: includes/class-cqseo-admin.php:95
 msgid "Technical SEO (basic 3 items only)"
-msgstr ""
+msgstr "技術 SEO (基本3項目のみ)"
 
 #: includes/class-cqseo-admin.php:96
 msgid ""
 "Detailed checks for security, redirects, sitemap, etc. available on paid "
 "plans"
-msgstr ""
+msgstr "セキュリティ・リダイレクト・サイトマップ等の詳細診断は有料プランで利用可能"
 
 #: includes/class-cqseo-admin.php:97 includes/class-cqseo-admin.php:215
 msgid "View pricing plans →"
-msgstr ""
+msgstr "料金プランを見る →"
 
 #: includes/class-cqseo-admin.php:98
 msgid "Get detailed diagnostics and improvement code generation"
-msgstr ""
+msgstr "さらに詳しい診断と改善コード生成が利用できます"
 
 #: includes/class-cqseo-admin.php:99
 msgid "Run a detailed check on the web"
-msgstr ""
+msgstr "Web 版で詳しく診断する"
 
 #: includes/class-cqseo-admin.php:100
 msgid "Run a check on the web to also generate improvement code"
-msgstr ""
+msgstr "Web 版で診断すると改善コードも生成できます"
 
 #: includes/class-cqseo-admin.php:101
 msgid "Fix on web version"
-msgstr ""
+msgstr "Web 版で改善する"
 
 #: includes/class-cqseo-admin.php:122
 msgid "URL to check"
-msgstr ""
+msgstr "診断する URL"
 
 #: includes/class-cqseo-admin.php:140
 msgid "Checking... Site analysis may take up to 60 seconds."
-msgstr ""
+msgstr "診断中…サイトの分析には最大60秒かかる場合があります。"
 
 #: includes/class-cqseo-admin.php:157
 msgid "/ 100"
-msgstr ""
+msgstr "/ 100"
 
 #: includes/class-cqseo-admin.php:175
 msgid "Analyze in more detail"
-msgstr ""
+msgstr "さらに詳しく分析する"
 
 #: includes/class-cqseo-admin.php:179
 msgid "Auto-generate improvement code"
-msgstr ""
+msgstr "改善コード自動生成"
 
 #: includes/class-cqseo-admin.php:180
 msgid "Available on all plans (with limits)"
-msgstr ""
+msgstr "全プランで利用可能 (件数制限あり)"
 
 #: includes/class-cqseo-admin.php:184
 msgid "Keyword Research"
-msgstr ""
+msgstr "キーワード調査"
 
 #: includes/class-cqseo-admin.php:185
 msgid "Suggestions, search volume & heading analysis"
-msgstr ""
+msgstr "サジェスト・検索ボリューム・見出し分析"
 
 #: includes/class-cqseo-admin.php:189
 msgid "Competitor SEO Comparison"
-msgstr ""
+msgstr "競合 SEO 比較"
 
 #: includes/class-cqseo-admin.php:190
 msgid "Compare SEO scores of up to 6 sites side by side"
-msgstr ""
+msgstr "最大6サイトの SEO スコアを並べて比較"
 
 #: includes/class-cqseo-admin.php:194
 msgid "Structured Data Diagnosis"
-msgstr ""
+msgstr "構造化データ診断"
 
 #: includes/class-cqseo-admin.php:195
 msgid "Detailed check of JSON-LD and rich results compatibility"
-msgstr ""
+msgstr "JSON-LD とリッチリザルトの対応状況を詳細チェック"
 
 #: includes/class-cqseo-admin.php:199
 msgid "Core Web Vitals Measurement"
-msgstr ""
+msgstr "Core Web Vitals 測定"
 
 #: includes/class-cqseo-admin.php:200
 msgid "Measure LCP, CLS & INP on mobile/desktop"
-msgstr ""
+msgstr "LCP・CLS・INP をモバイル / デスクトップで計測"
 
 #: includes/class-cqseo-admin.php:204
 msgid "Full Site Diagnosis"
-msgstr ""
+msgstr "サイト全体診断"
 
 #: includes/class-cqseo-admin.php:205
 msgid "Bulk check SEO scores for all pages"
-msgstr ""
+msgstr "全ページの SEO スコアを一括チェック"
 
 #: includes/class-cqseo-admin.php:209
 msgid "Competitor Keyword Research"
-msgstr ""
+msgstr "競合キーワード調査"
 
 #: includes/class-cqseo-admin.php:210
 msgid "Analyze competitor site ranking keywords"
-msgstr ""
+msgstr "競合サイトのランクインキーワードを分析"
 
 #. translators: %s: plan name (e.g. Free, Pro)
 #: includes/class-cqseo-admin.php:253
 #, php-format
 msgid "%s Plan"
-msgstr ""
+msgstr "%s プラン"
 
 #: includes/class-cqseo-api.php:109
 msgid "No API key has been set."
-msgstr ""
+msgstr "API キーが設定されていません。"
 
 #: includes/class-cqseo-api.php:121
 msgid "API connection error"
-msgstr ""
+msgstr "API 接続エラー"
 
 #: includes/class-cqseo-api.php:126
 msgid "The API key is invalid"
-msgstr ""
+msgstr "API キーが無効です"
 
 #: includes/class-cqseo-api.php:131 includes/class-cqseo-api.php:183
 msgid "Failed to parse API response."
-msgstr ""
+msgstr "API レスポンスの解析に失敗しました。"
 
 #: includes/class-cqseo-api.php:168
 msgid "An API connection error occurred. Please try again later."
-msgstr ""
+msgstr "API 接続エラーが発生しました。しばらく経ってから再度お試しください。"
 
 #: includes/class-cqseo-api.php:178
 msgid "An unknown error occurred."
-msgstr ""
+msgstr "不明なエラーが発生しました。"
 
 #: includes/class-cqseo-settings.php:44
 msgid "Please enter an API key"
-msgstr ""
+msgstr "API キーを入力してください"
 
 #: includes/class-cqseo-settings.php:45
 msgid "Verifying..."
-msgstr ""
+msgstr "検証中…"
 
 #: includes/class-cqseo-settings.php:46
 msgid "Verification failed"
-msgstr ""
+msgstr "検証に失敗しました"
 
 #: includes/class-cqseo-settings.php:47
 msgid "Connection error"
-msgstr ""
+msgstr "通信エラー"
 
 #: includes/class-cqseo-settings.php:69
 msgid "API Settings"
-msgstr ""
+msgstr "API 設定"
 
 #: includes/class-cqseo-settings.php:76
 msgid "API Key"
-msgstr ""
+msgstr "API キー"
 
 #: includes/class-cqseo-settings.php:87
 msgid ""
 "Set an API key to use your plan's check quota. Without a key, you can use "
 "the free tier (up to 3 checks)."
-msgstr ""
+msgstr "API キーを設定すると、プランの回数枠で診断が可能になります。未入力の場合は無料枠 (3回まで) で動作します。"
 
 #: includes/class-cqseo-settings.php:103
 msgid "Enter API key (optional)"
-msgstr ""
+msgstr "API キーを入力 (任意)"
 
 #: includes/class-cqseo-settings.php:106
 msgid "Verify"
-msgstr ""
+msgstr "検証"
 
 #. translators: %s: CodeQuest URL
 #: includes/class-cqseo-settings.php:121
 #, php-format
 msgid "You can get an API key at %s."
-msgstr ""
+msgstr "API キーは %s で取得できます。"
 
 #: includes/class-cqseo-settings.php:140
 msgid "ORECTIC SEO CHECK Settings"
-msgstr ""
+msgstr "ORECTIC SEO CHECK 設定"

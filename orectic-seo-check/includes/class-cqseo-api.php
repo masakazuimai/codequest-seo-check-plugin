@@ -106,7 +106,7 @@ class CQSEO_API {
         $api_key = '' !== $api_key ? $api_key : self::get_api_key();
 
         if ( empty( $api_key ) ) {
-            return new WP_Error( 'cqseo_no_api_key', __( 'APIキーが設定されていません。', 'orectic-seo-check' ) );
+            return new WP_Error( 'cqseo_no_api_key', __( 'No API key has been set.', 'orectic-seo-check' ) );
         }
 
         $response = wp_remote_get(
@@ -118,17 +118,17 @@ class CQSEO_API {
         );
 
         if ( is_wp_error( $response ) ) {
-            return new WP_Error( 'cqseo_api_error', __( 'API接続エラー', 'orectic-seo-check' ) );
+            return new WP_Error( 'cqseo_api_error', __( 'API connection error', 'orectic-seo-check' ) );
         }
 
         $code = wp_remote_retrieve_response_code( $response );
         if ( 200 !== $code ) {
-            return new WP_Error( 'cqseo_api_error', __( 'APIキーが無効です', 'orectic-seo-check' ) );
+            return new WP_Error( 'cqseo_api_error', __( 'The API key is invalid', 'orectic-seo-check' ) );
         }
 
         $body = json_decode( wp_remote_retrieve_body( $response ), true );
         if ( ! is_array( $body ) ) {
-            return new WP_Error( 'cqseo_api_error', __( 'APIレスポンスの解析に失敗しました。', 'orectic-seo-check' ) );
+            return new WP_Error( 'cqseo_api_error', __( 'Failed to parse API response.', 'orectic-seo-check' ) );
         }
 
         return $body;
@@ -165,7 +165,7 @@ class CQSEO_API {
         if ( is_wp_error( $response ) ) {
             return new WP_Error(
                 'cqseo_api_error',
-                __( 'API接続エラーが発生しました。しばらく経ってから再度お試しください。', 'orectic-seo-check' )
+                __( 'An API connection error occurred. Please try again later.', 'orectic-seo-check' )
             );
         }
 
@@ -175,12 +175,12 @@ class CQSEO_API {
 
         if ( 200 !== $code ) {
             $api_msg = isset( $data['error'] ) ? $data['error'] : ( isset( $data['message'] ) ? $data['message'] : '' );
-            $message = ! empty( $api_msg ) ? sanitize_text_field( $api_msg ) : __( '不明なエラーが発生しました。', 'orectic-seo-check' );
+            $message = ! empty( $api_msg ) ? sanitize_text_field( $api_msg ) : __( 'An unknown error occurred.', 'orectic-seo-check' );
             return new WP_Error( 'cqseo_api_error', $message );
         }
 
         if ( null === $data ) {
-            return new WP_Error( 'cqseo_api_error', __( 'APIレスポンスの解析に失敗しました。', 'orectic-seo-check' ) );
+            return new WP_Error( 'cqseo_api_error', __( 'Failed to parse API response.', 'orectic-seo-check' ) );
         }
 
         return $this->sanitize_response( $data );

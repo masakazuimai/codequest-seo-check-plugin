@@ -4,7 +4,7 @@ Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.2.3
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -104,6 +104,13 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.3.0 =
+* Changed: Source strings are now written in English, making the plugin translatable into any language on translate.wordpress.org
+* Changed: Japanese translations rewritten to follow the WordPress Japanese Translation Style Guide
+* Changed: Plugin description is now in English
+* Fixed: Plan label no longer built by string concatenation — now uses a placeholder so translators can control spacing
+* Added: API error strings that were missing from the translation template are now translatable
 
 = 1.2.3 =
 * Compatibility: Tested with WordPress 7.0
