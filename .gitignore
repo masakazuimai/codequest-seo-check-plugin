@@ -24,6 +24,9 @@ Desktop.ini
 # プラグイン配布用ZIP（ビルド成果物）
 *.zip
 
+# WordPress.org SVN ワーキングコピー（別リポジトリのため git 管理外）
+svn/
+
 # 依存関係
 node_modules/
 vendor/
