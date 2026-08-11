@@ -4,7 +4,7 @@ Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,18 +35,6 @@ This plugin sends data to the CodeQuest API service to perform SEO diagnosis.
 
 Without an API key, you can use the free tier (up to 3 checks). Register for a free account to get monthly resets and diagnosis history.
 
-= 日本語 / Japanese =
-
-WordPress管理画面からワンクリックでSEO診断ができるプラグインです。
-
-* **総合スコア表示** - 100点満点でサイトのSEO状態を可視化
-* **4カテゴリ評価** - 構造化データ、基本SEO、コンテンツ、技術SEOの各カテゴリ別スコア
-* **詳細チェック項目** - タイトルタグ、メタディスクリプション、見出し構造、OGPタグなどの個別診断
-* **改善提案** - 各項目に対する具体的な改善アドバイス
-* **日英対応** - WordPress言語設定に連動して診断結果を日本語/英語で表示
-
-APIキーなしでも3回まで無料で診断できます。アカウント登録（無料）すると毎月リセット＋診断履歴が利用可能になります。
-
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/orectic-seo-check/` directory
@@ -58,18 +46,6 @@ APIキーなしでも3回まで無料で診断できます。アカウント登�
 1. Go to "ORECTIC SEO CHECK" → "Settings"
 2. Enter your API key and save
 3. Get your API key at https://seo.codequest.work
-
-= インストール手順（日本語） =
-
-1. プラグインファイルを `/wp-content/plugins/orectic-seo-check/` にアップロード
-2. WordPress管理画面の「プラグイン」からORECTIC SEO CHECKを有効化
-3. 左メニューの「ORECTIC SEO CHECK」からSEO診断を実行
-
-= APIキーの設定（任意） =
-
-1. 「ORECTIC SEO CHECK」→「設定」を開く
-2. APIキー欄にキーを入力して保存
-3. APIキーは https://seo.codequest.work で取得できます
 
 == Frequently Asked Questions ==
 
@@ -85,18 +61,6 @@ Only the URL being diagnosed is sent to the CodeQuest API. No WordPress login cr
 
 Typically 10-30 seconds. Depending on the target site's response time, it may take up to 60 seconds.
 
-= APIキーは必要ですか？ =
-
-いいえ、APIキーがなくても3回まで無料で診断できます。アカウント登録（無料）すると毎月リセット＋診断履歴が利用可能になり、有料プランのAPIキーを設定するとプラン枠で診断できます。
-
-= どのようなデータが外部に送信されますか？ =
-
-診断対象のURLのみがCodeQuest APIに送信されます。WordPressのログイン情報やサイトのコンテンツが送信されることはありません。
-
-= 診断にどのくらい時間がかかりますか？ =
-
-通常10〜30秒程度です。サイトの応答速度により最大60秒かかる場合があります。
-
 == Screenshots ==
 
 1. SEO diagnosis main page - Enter a URL and run the check
@@ -104,6 +68,10 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.3.1 =
+* Changed: The readme is now written entirely in English. The Japanese sections that were embedded directly in readme.txt have been removed so the readme can be translated on translate.wordpress.org like any other locale
+* No functional changes
 
 = 1.3.0 =
 * Changed: Source strings are now written in English, making the plugin translatable into any language on translate.wordpress.org
@@ -118,8 +86,8 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 
 = 1.2.2 =
 * Fixed: API error messages (e.g. quota exceeded) now display correctly instead of "Unknown error"
-* Changed: Primary CTA text updated to "Web版で詳しく診断する" for clarity
-* Changed: Inline fix button text updated to "Web版で改善する"
+* Changed: Primary CTA text now states that the detailed diagnosis runs on the web version
+* Changed: Inline fix button text now states that improvements are made on the web version
 * Changed: CTA title and subtitle reworded to accurately describe the web version flow
 
 = 1.2.1 =

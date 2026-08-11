@@ -3,7 +3,7 @@
  * Plugin Name: ORECTIC SEO CHECK
  * Plugin URI: https://seo.codequest.work
  * Description: One-click SEO diagnosis for your site. Shows a score out of 100 across 4 categories: Structured Data, Basic SEO, Content, and Technical SEO.
- * Version: 1.3.0
+ * Version: 1.3.1
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: ORECTIC
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'CQSEO_VERSION', '1.3.0' );
+define( 'CQSEO_VERSION', '1.3.1' );
 define( 'CQSEO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CQSEO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'CQSEO_API_BASE', 'https://codequest-seo-api.misty-night-a30e.workers.dev' );
