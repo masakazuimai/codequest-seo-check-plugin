@@ -2,9 +2,9 @@
 Contributors: masakazuimai
 Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,11 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.3.2 =
+* Compatibility: Tested with WordPress 7.1
+* Fixed: The score circle animation no longer triggers a jQuery deprecation warning for number-typed CSS values
+* Changed: Removed the manual load_plugin_textdomain() call. Translations are now loaded automatically, as recommended since WordPress 4.6
 
 = 1.3.1 =
 * Changed: The readme is now written entirely in English. The Japanese sections that were embedded directly in readme.txt have been removed so the readme can be translated on translate.wordpress.org like any other locale

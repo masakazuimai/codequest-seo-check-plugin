@@ -57,10 +57,11 @@
       .addClass(getScoreClass(score, maxScore));
 
     // アニメーション用に一度リセット
-    $bar.css('stroke-dashoffset', CIRCUMFERENCE);
+    // jQuery は stroke-dashoffset への数値指定を非推奨としているため文字列で渡す
+    $bar.css('stroke-dashoffset', String(CIRCUMFERENCE));
 
     setTimeout(function () {
-      $bar.css('stroke-dashoffset', offset);
+      $bar.css('stroke-dashoffset', String(offset));
     }, 50);
 
     $('#cqseo-score-value').text(score);

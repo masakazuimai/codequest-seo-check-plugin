@@ -3,7 +3,7 @@
  * Plugin Name: ORECTIC SEO CHECK
  * Plugin URI: https://seo.codequest.work
  * Description: One-click SEO diagnosis for your site. Shows a score out of 100 across 4 categories: Structured Data, Basic SEO, Content, and Technical SEO.
- * Version: 1.3.1
+ * Version: 1.3.2
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: ORECTIC
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'CQSEO_VERSION', '1.3.1' );
+define( 'CQSEO_VERSION', '1.3.2' );
 define( 'CQSEO_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'CQSEO_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'CQSEO_API_BASE', 'https://codequest-seo-api.misty-night-a30e.workers.dev' );
@@ -28,21 +28,6 @@ define( 'CQSEO_RATE_LIMIT_PER_MIN', 10 );
 require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-admin.php';
 require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-api.php';
 require_once CQSEO_PLUGIN_DIR . 'includes/class-cqseo-settings.php';
-
-/**
- * 翻訳ファイルを読み込み
- *
- * WordPress.org 配信の翻訳（wp-content/languages/plugins/）が優先され、
- * 未配信の言語では同梱の languages/ がフォールバックとして使われる。
- */
-function cqseo_load_textdomain() {
-    load_plugin_textdomain(
-        'orectic-seo-check',
-        false,
-        dirname( plugin_basename( __FILE__ ) ) . '/languages'
-    );
-}
-add_action( 'init', 'cqseo_load_textdomain' );
 
 /**
  * 管理画面の初期化
