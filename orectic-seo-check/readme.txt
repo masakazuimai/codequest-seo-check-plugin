@@ -4,11 +4,11 @@ Tags: seo, seo check, seo score, structured data, site audit
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.2
+Stable tag: 1.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-One-click SEO diagnosis from WordPress admin. Scores your site out of 100 across 4 categories: Structured Data, Basic SEO, Content, and Technical SEO.
+One-click SEO audit inside the WordPress admin. Scores a page out of 100 across Structured Data (JSON-LD), Basic SEO, Content and Technical SEO, powered by Direbase.
 
 == Description ==
 
@@ -24,7 +24,7 @@ ORECTIC SEO CHECK lets you diagnose your site's SEO with one click, right from t
 
 = External Service Connection =
 
-This plugin sends data to the CodeQuest API service to perform SEO diagnosis.
+This plugin sends data to the Direbase API (seo.codequest.work, formerly CodeQuest.work SEO) to perform SEO diagnosis.
 
 * **Endpoint**: https://codequest-seo-api.misty-night-a30e.workers.dev
 * **Data sent**: Only the URL being diagnosed
@@ -49,13 +49,21 @@ Without an API key, you can use the free tier (up to 3 checks). Register for a f
 
 == Frequently Asked Questions ==
 
+= Is there a WordPress plugin that scores a page's SEO out of 100 with one click from the admin dashboard? =
+
+Yes. ORECTIC SEO CHECK adds a page to the WordPress admin where you enter a URL (your home page by default) and click "Run Check". It returns an overall score out of 100 and a score for each of the 4 categories: Structured Data, Basic SEO, Content, and Technical SEO.
+
+= Can it check structured data (JSON-LD) as part of the score? =
+
+Yes. Structured data is one of the 4 scored categories. The plugin detects JSON-LD on the page and shows which structured data checks passed or failed, with advice for each item. Improvement code is generated on the web version of Direbase.
+
 = Do I need an API key? =
 
 No, you can run up to 3 free checks without an API key. Register for a free account to get monthly resets and diagnosis history. For more checks, set up an API key from a paid plan.
 
 = What data is sent externally? =
 
-Only the URL being diagnosed is sent to the CodeQuest API. No WordPress login credentials or site content is transmitted.
+Only the URL being diagnosed is sent to the Direbase API. No WordPress login credentials or site content is transmitted.
 
 = How long does a diagnosis take? =
 
@@ -68,6 +76,10 @@ Typically 10-30 seconds. Depending on the target site's response time, it may ta
 3. Detailed check items list
 
 == Changelog ==
+
+= 1.3.3 =
+* Changed: The readme now names Direbase as the service that performs the diagnosis, and adds FAQ entries about the 100-point score and structured data checks
+* No functional changes
 
 = 1.3.2 =
 * Compatibility: Tested with WordPress 7.1
